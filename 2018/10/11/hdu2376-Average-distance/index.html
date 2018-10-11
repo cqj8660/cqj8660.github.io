@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边$u-&amp;gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m  n$。所以我们只需要一遍">
+<meta name="description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边u-&amp;gt;v假设u的一侧有m个结点，v的一侧有n个结点，那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是m乘以n。所以我们只需要一遍dfs，计算出每条边的贡献和">
 <meta name="keywords" content="树形dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hdu2376 Average distance">
 <meta property="og:url" content="http://yoursite.com/2018/10/11/hdu2376-Average-distance/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边$u-&amp;gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m  n$。所以我们只需要一遍">
+<meta property="og:description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边u-&amp;gt;v假设u的一侧有m个结点，v的一侧有n个结点，那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是m乘以n。所以我们只需要一遍dfs，计算出每条边的贡献和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-11T13:28:35.000Z">
+<meta property="og:updated_time" content="2018-10-11T13:44:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hdu2376 Average distance">
-<meta name="twitter:description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边$u-&amp;gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m  n$。所以我们只需要一遍">
+<meta name="twitter:description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边u-&amp;gt;v假设u的一侧有m个结点，v的一侧有n个结点，那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是m乘以n。所以我们只需要一遍dfs，计算出每条边的贡献和">
 
 
 
@@ -352,7 +352,7 @@
       
 
       
-        <h5 id="题面：http-acm-hdu-edu-cn-showproblem-php-pid-2376"><a href="#题面：http-acm-hdu-edu-cn-showproblem-php-pid-2376" class="headerlink" title="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376"></a>题面：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2376" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=2376</a></h5><p>题意：计算树上任意两点距离和的平均值。<br>解法：树形dp<br>这是一个简单基础经典的树形dp。<br>我们考虑计算每条边的贡献，对于一条边$u-&gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m <em> n$。所以我们只需要一遍dfs，计算出每条边的贡献和即可。<br>具体来说，我们需要记录每个结点为根的子树所含结点$i$个，那么另一侧的结点个数必然是$n-i$个，每次相加即可。<br>我们把所有边的贡献求总和，再除以总路径数$N</em>(N-1)/2$，即为最后所求。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    ll cost;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; tree[maxn];</span><br><span class="line">ll sum[maxn], dp[maxn];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    sum[now] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> idx: tree[now])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(idx.to == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(idx.to, now);</span><br><span class="line">        sum[now] += sum[idx.to];</span><br><span class="line">        dp[now] += dp[idx.to] + sum[idx.to] * (n - sum[idx.to]) * idx.cost;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cas;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;cas);</span><br><span class="line">    <span class="keyword">while</span>(cas--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxn; i++)</span><br><span class="line">            tree[i].clear();</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="built_in">memset</span>(sum, <span class="number">0</span>, <span class="keyword">sizeof</span>(sum));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">int</span> a, b, d;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;d);</span><br><span class="line">            tree[a].push_back(node&#123;b, d&#125;);</span><br><span class="line">            tree[b].push_back(node&#123;a, d&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">1.0</span> * dp[<span class="number">0</span>] / (n * (n - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.8f\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>题面：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2376" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=2376</a><br>题意：计算树上任意两点距离和的平均值。<br>解法：树形dp<br>这是一个简单基础经典的树形dp。<br>我们考虑计算每条边的贡献，对于一条边u-&gt;v假设u的一侧有m个结点，v的一侧有n个结点，那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是m乘以n。<br>所以我们只需要一遍dfs，计算出每条边的贡献和即可。<br>具体来说，我们需要记录每个结点为根的子树所含结点i个，那么另一侧的结点个数必然是n-i个，每次相加即可。<br>我们把所有边的贡献求总和，再除以总路径数N * (N - 1) / 2，即为最后所求。<br><a id="more"></a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    ll cost;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; tree[maxn];</span><br><span class="line">ll sum[maxn], dp[maxn];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    sum[now] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> idx: tree[now])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(idx.to == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(idx.to, now);</span><br><span class="line">        sum[now] += sum[idx.to];</span><br><span class="line">        dp[now] += dp[idx.to] + sum[idx.to] * (n - sum[idx.to]) * idx.cost;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cas;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;cas);</span><br><span class="line">    <span class="keyword">while</span>(cas--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxn; i++)</span><br><span class="line">            tree[i].clear();</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="built_in">memset</span>(sum, <span class="number">0</span>, <span class="keyword">sizeof</span>(sum));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">int</span> a, b, d;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;d);</span><br><span class="line">            tree[a].push_back(node&#123;b, d&#125;);</span><br><span class="line">            tree[b].push_back(node&#123;a, d&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">1.0</span> * dp[<span class="number">0</span>] / (n * (n - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.8f\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -443,17 +443,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -533,22 +524,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#题面：http-acm-hdu-edu-cn-showproblem-php-pid-2376"><span class="nav-number">1.</span> <span class="nav-text">题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -750,26 +725,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
