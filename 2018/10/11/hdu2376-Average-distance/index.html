@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="欧几里得," />
+  <meta name="keywords" content="树形dp," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="拓展欧几里得简单的说，就是求关于$x$,$y$的方程$ax + by = gcd(a,b)$ 的所有整数解现在我们令$g = gcd(a,b)$则方程变成了$ax + by = g$假如我们现在知道了这个方程的一个特解$x_0$,$y_0$，我们就可以用一种方法求出所有的整数解。">
-<meta name="keywords" content="欧几里得">
+<meta name="description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边$u-&amp;gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m  n$。所以我们只需要一遍">
+<meta name="keywords" content="树形dp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="扩展欧几里得">
-<meta property="og:url" content="http://yoursite.com/2018/10/10/扩展欧几里得/index.html">
+<meta property="og:title" content="hdu2376 Average distance">
+<meta property="og:url" content="http://yoursite.com/2018/10/11/hdu2376-Average-distance/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="拓展欧几里得简单的说，就是求关于$x$,$y$的方程$ax + by = gcd(a,b)$ 的所有整数解现在我们令$g = gcd(a,b)$则方程变成了$ax + by = g$假如我们现在知道了这个方程的一个特解$x_0$,$y_0$，我们就可以用一种方法求出所有的整数解。">
+<meta property="og:description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边$u-&amp;gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m  n$。所以我们只需要一遍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-10T12:24:57.000Z">
+<meta property="og:updated_time" content="2018-10-11T13:28:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="扩展欧几里得">
-<meta name="twitter:description" content="拓展欧几里得简单的说，就是求关于$x$,$y$的方程$ax + by = gcd(a,b)$ 的所有整数解现在我们令$g = gcd(a,b)$则方程变成了$ax + by = g$假如我们现在知道了这个方程的一个特解$x_0$,$y_0$，我们就可以用一种方法求出所有的整数解。">
+<meta name="twitter:title" content="hdu2376 Average distance">
+<meta name="twitter:description" content="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376题意：计算树上任意两点距离和的平均值。解法：树形dp这是一个简单基础经典的树形dp。我们考虑计算每条边的贡献，对于一条边$u-&amp;gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m  n$。所以我们只需要一遍">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/10/扩展欧几里得/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/11/hdu2376-Average-distance/"/>
 
 
 
 
 
-  <title>扩展欧几里得 | Qjchen's Blog</title>
+  <title>hdu2376 Average distance | Qjchen's Blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/扩展欧几里得/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/hdu2376-Average-distance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qjchen">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">扩展欧几里得</h1>
+          <h1 class="post-title" itemprop="name headline">hdu2376 Average distance</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T19:41:45+08:00">
-                2018-10-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-11T21:18:05+08:00">
+                2018-10-11
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数论/" itemprop="url" rel="index">
-                    <span itemprop="name">数论</span>
+                  <a href="/categories/dp/" itemprop="url" rel="index">
+                    <span itemprop="name">dp</span>
                   </a>
                 </span>
 
@@ -352,27 +352,7 @@
       
 
       
-        <h3 id="拓展欧几里得"><a href="#拓展欧几里得" class="headerlink" title="拓展欧几里得"></a>拓展欧几里得</h3><p>简单的说，就是求关于$x$,$y$的方程$ax + by = gcd(a,b)$ 的所有整数解<br>现在我们令$g = gcd(a,b)$<br>则方程变成了$ax + by = g$<br>假如我们现在知道了这个方程的一个特解$x_0$,$y_0$，我们就可以用一种方法求出所有的整数解。<br><a id="more"></a><br>说的比较模糊，现在整理一下。<br>上面提到了两个问题 </p>
-<ol>
-<li>怎么求出这个特解？ </li>
-<li>怎么由特解推出其它的所有解？</li>
-</ol>
-<h4 id="求特解"><a href="#求特解" class="headerlink" title="求特解"></a>求特解</h4><p>我们知道，欧几里得公式可以由这个式子表示：<br>$gcd(a, b) = gcd(b, b \%a) $<br>不断往下连等，直到$b = 0$，此时a即为最大公约数<br>那么我们来讨论另一个问题，下面两个式子有没有关系呢？</p>
-<p>$a <em> x1 + b </em> y1 = g(a, b) $<br>$b <em> x2 + (a \%b) </em> y2 = g(b, a \% b) $</p>
-<p>如果看这篇博客的你还没接触过拓展欧几里得，那么可能你还不知道现在在干什么。<br>那么，我可以告诉你，只要找出$x1$和$x2$的关系、$y1$和$y2$的关系，我们就能求出方程$a <em> x + b </em> y = g$的一个特解</p>
-<p>回到刚才那个问题，很显然，两个等式右边就是欧几里得的公式<br>那么我们就能得出<br>$a <em> x1 + b </em> y1 = b <em> x2 + (a \%b) </em> y2 $<br>其中a%b可以换成$a-(a/b)<em>b $<br>式子变成了<br>$a </em> x1 + b <em> y1 = b </em> x2 + (a - (a / b) <em> b) </em> y2 $<br>因为我们要找x1 y1和x2 y2的关系<br>我们可以用待定系数法，按照这种方法把右边化成$b <em> (x2 - (a / b) </em> y2) + a <em> y2 $<br>则等式变成了<br>$a </em> x1 + b <em> y1 = a </em> y2 + b <em> (x2 - (a / b) </em> y2) $<br>(上面的过程最好动手演算)<br>好，我们现在得出了下面两个等式：<br>$x1 = y2$（等式两边a的系数相同）<br>$y1 = x2 - (a / b) <em> y2$ （等式两边b的系数相同）<br>也就是说，我们知道了方程$b </em> x2 + (a \%b) <em> y2 = g(b,a \%b)$ 的解$x2, y2$，就可以得到方程$a </em> x1 + b * y1 = g(a,b)$ 的解$x1$, $y1$了，这个小问题告一段落。</p>
-<p>对于方程$a <em> x + b </em> y = gcd(a,b)$，我们可以不断的往下变成$b <em> x + (a \% b) y = gcd(a,b)$ ，按照欧几里得的过程，$b$会变成0，即此时方程$a </em> x + b <em> y = gcd(a,b)$ 因为$b = 0$，变成了$a </em> x = gcd(a,b) $，还是由欧几里得算法得到，此时$a$就等于$gcd(a,b)$，所以得到由原方程往下推了不知道多少次的方程$a <em> x = gcd(a,b)来说$，得到一个解x = 1, y = 0。现在得到了这个方程的解，利用上一个小问题挣出的结论，就可以得出原方程$a </em> x + b * y = gcd(a,b)$的一个特解。</p>
-<p>OK，这个问题解决了。</p>
-<h4 id="怎么利用特解推出其他所有整数解？"><a href="#怎么利用特解推出其他所有整数解？" class="headerlink" title="怎么利用特解推出其他所有整数解？"></a>怎么利用特解推出其他所有整数解？</h4><p>先说结论：<br>对于关于x，y的方程$a <em> x + b </em> y = g $来说，让$x$增加$b/g$，让$y$减少$a/g$，等式两边还相等。（注意一个增加一个减少）<br>为什么呢？<br>这个很容易得到，我们算一下即可。<br>让$x$增加$b/g$，对于$a <em> x$这一项来说，增加了$a </em> b / g$，可以看出这是a,b的最小公倍数同样，对于$b <em> y$这一项来说，$y$ 减少 $a/b$，这一项增加了$a </em>  b / g$，同样是a,b的最小公倍数。<br>可以看出，这两项一项增加了一个最小公倍数，一项减少了一个最小公倍数，加起来的和仍然等于g。<br>这样我们就明白了,其实这种操作就是增加一个最小公倍数，减少一个最小公倍数，这样来改变x,y的值，来求出所有x,y的通解的。</p>
-<p>那为什么改变的是最小公倍数而不是更小的数呢？因为是最小公倍数呀..不会再找到更小的值了，这个自行体会吧。</p>
-<h4 id="如何求解方程"><a href="#如何求解方程" class="headerlink" title="如何求解方程"></a>如何求解方程</h4><p>到这里为止，开头提出的两个问题都已经解决。<br>也就是说，对于方程$a <em> x + b </em> y = gcd(a, b)$，我们能找出所有符合条件的解了。而且，还可以告诉你，这个方程是一定有无数个解的。</p>
-<p>那么来一个更一般的问题，对于方程$a <em> x + b </em> y = c$来说，它的解怎么求呢？<br>答：如果$c % gcd(a,b) != 0$，即c不是gcd的整数倍，则无解。<br>如果$c % gcd(a, b) == 0$ 且$ c / gcd(a, b) = t$，那么求出方程 $a <em> x + b </em> y = gcd(a, b)$的所有解$x$,$y$，将$x$, $y$乘上$t$，对应的$x’$,$y’$即是方程$a <em> x + b </em> y = t * gcd(a, b)$的解<br>很好理解，就不解释了，仔细看上面的这段话就能理解</p>
-<blockquote>
-<p>扩展欧几里得代码</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">e_gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> &amp;gcd, <span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        gcd = a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        e_gcd(b, a % b, gcd, y, x);</span><br><span class="line">        y -= x * (a / b)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>作者：life_bre<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/sdutstudent/article/details/78795643?utm_source=copy" target="_blank" rel="noopener">https://blog.csdn.net/sdutstudent/article/details/78795643?utm_source=copy</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+        <h5 id="题面：http-acm-hdu-edu-cn-showproblem-php-pid-2376"><a href="#题面：http-acm-hdu-edu-cn-showproblem-php-pid-2376" class="headerlink" title="题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376"></a>题面：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2376" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=2376</a></h5><p>题意：计算树上任意两点距离和的平均值。<br>解法：树形dp<br>这是一个简单基础经典的树形dp。<br>我们考虑计算每条边的贡献，对于一条边$u-&gt;v$假设u的一侧有m个结点（包括u），v的一侧有n个结点（包括v），那么这两边的结点要想互通，必然要经过这一条边，所以这一条边的贡献就是$m <em> n$。所以我们只需要一遍dfs，计算出每条边的贡献和即可。<br>具体来说，我们需要记录每个结点为根的子树所含结点$i$个，那么另一侧的结点个数必然是$n-i$个，每次相加即可。<br>我们把所有边的贡献求总和，再除以总路径数$N</em>(N-1)/2$，即为最后所求。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to;</span><br><span class="line">    ll cost;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; tree[maxn];</span><br><span class="line">ll sum[maxn], dp[maxn];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    sum[now] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> idx: tree[now])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(idx.to == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(idx.to, now);</span><br><span class="line">        sum[now] += sum[idx.to];</span><br><span class="line">        dp[now] += dp[idx.to] + sum[idx.to] * (n - sum[idx.to]) * idx.cost;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cas;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;cas);</span><br><span class="line">    <span class="keyword">while</span>(cas--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxn; i++)</span><br><span class="line">            tree[i].clear();</span><br><span class="line">        <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="built_in">memset</span>(sum, <span class="number">0</span>, <span class="keyword">sizeof</span>(sum));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">int</span> a, b, d;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;d);</span><br><span class="line">            tree[a].push_back(node&#123;b, d&#125;);</span><br><span class="line">            tree[b].push_back(node&#123;a, d&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">1.0</span> * dp[<span class="number">0</span>] / (n * (n - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.8f\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -390,7 +370,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/欧几里得/" rel="tag"># 欧几里得</a>
+            <a href="/tags/树形dp/" rel="tag"># 树形dp</a>
           
         </div>
       
@@ -403,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/10/第一章-线性表/" rel="next" title="第一章 线性表">
-                <i class="fa fa-chevron-left"></i> 第一章 线性表
+              <a href="/2018/10/10/扩展欧几里得/" rel="next" title="扩展欧几里得">
+                <i class="fa fa-chevron-left"></i> 扩展欧几里得
               </a>
             
           </div>
@@ -412,10 +392,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/11/hdu2376-Average-distance/" rel="prev" title="hdu2376 Average distance">
-                hdu2376 Average distance <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展欧几里得"><span class="nav-number">1.</span> <span class="nav-text">拓展欧几里得</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#求特解"><span class="nav-number">1.1.</span> <span class="nav-text">求特解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么利用特解推出其他所有整数解？"><span class="nav-number">1.2.</span> <span class="nav-text">怎么利用特解推出其他所有整数解？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何求解方程"><span class="nav-number">1.3.</span> <span class="nav-text">如何求解方程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#题面：http-acm-hdu-edu-cn-showproblem-php-pid-2376"><span class="nav-number">1.</span> <span class="nav-text">题面：http://acm.hdu.edu.cn/showproblem.php?pid=2376</span></a></li></ol></div>
             
 
           </div>
@@ -774,6 +750,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
