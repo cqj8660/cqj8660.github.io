@@ -82,15 +82,15 @@
 <meta name="description" content="题面:http://codeforces.com/contest/791/problems A. Bear and Big Brother题意：一个数第二天是第一天的3倍，另一个数第二天是第一天的2倍，问什么时候第一个数大于第二个数。解法：模拟">
 <meta name="keywords" content="贪心,模拟,并查集,树形dp,动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 405 div2">
+<meta property="og:title" content="Codeforces Round #401 (Div. 2)">
 <meta property="og:url" content="http://yoursite.com/2018/10/10/Codeforces-405-div2/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="题面:http://codeforces.com/contest/791/problems A. Bear and Big Brother题意：一个数第二天是第一天的3倍，另一个数第二天是第一天的2倍，问什么时候第一个数大于第二个数。解法：模拟">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://codeforces.com/predownloaded/9f/43/9f4358fb14a87a3173398425acc45177462691a8.png">
-<meta property="og:updated_time" content="2018-10-11T13:39:29.000Z">
+<meta property="og:updated_time" content="2018-10-12T04:45:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Codeforces 405 div2">
+<meta name="twitter:title" content="Codeforces Round #401 (Div. 2)">
 <meta name="twitter:description" content="题面:http://codeforces.com/contest/791/problems A. Bear and Big Brother题意：一个数第二天是第一天的3倍，另一个数第二天是第一天的2倍，问什么时候第一个数大于第二个数。解法：模拟">
 <meta name="twitter:image" content="http://codeforces.com/predownloaded/9f/43/9f4358fb14a87a3173398425acc45177462691a8.png">
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>Codeforces 405 div2 | Qjchen's Blog</title>
+  <title>Codeforces Round #401 (Div. 2) | Qjchen's Blog</title>
   
 
 
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Codeforces 405 div2</h1>
+          <h1 class="post-title" itemprop="name headline">Codeforces Round #401 (Div. 2)</h1>
         
 
         <div class="post-meta">
@@ -362,6 +362,7 @@
 <p><div align="center"><img src="http://codeforces.com/predownloaded/9f/43/9f4358fb14a87a3173398425acc45177462691a8.png" alt="http://codeforces.com/predownloaded/9f/43/9f4358fb14a87a3173398425acc45177462691a8.png"></div></p>
 <p>对于这棵树，我们观察2号结点，假设现在4.5号子树已经遍历完成，5号子树正回溯回来。<br>则dp[2][0] = 1,dp[2][1] = 2,dp[5][0]=1<br>处理的其实是2-&gt;5, 4-&gt;5, 6-&gt;5, 其距离%k后分别是1, 0, 1，ans需要加上1, 0, 1。<br>对于每次DFS，我们需要做的是计算子树中的每个点相互到达所需要加的值，处理完还要把子树的dp值继承给父结点以进行其他点对的计算。<br>See my code for details.好好理解.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree[maxn];</span><br><span class="line">ll dp[maxn][<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span> layer[maxn];</span><br><span class="line"><span class="keyword">int</span> cnt, n, k;</span><br><span class="line">ll ans;</span><br><span class="line">ll sum[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">subtract</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((a - b) % k + k) % k;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> node, <span class="keyword">int</span> fa, <span class="keyword">int</span> lay)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    sum[node] = dp[node][lay % k] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> idx: tree[node])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(idx == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(idx, node, lay + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> r = subtract(i + j, <span class="number">2</span> * lay);</span><br><span class="line">                <span class="comment">// compute distance modulo k</span></span><br><span class="line">                <span class="keyword">int</span> t = subtract(k, r);</span><br><span class="line">                <span class="comment">// compute x such that (distance + x) is divisible by k</span></span><br><span class="line">                ans += t * dp[node][i] * dp[idx][j];</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">            dp[node][i] += dp[idx][i];</span><br><span class="line">        sum[node] += sum[idx];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// in how many pairs we will count the edge from 'a' to its parent?</span></span><br><span class="line">    ans += sum[node] * (n - sum[node]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        tree[a].push_back(b);</span><br><span class="line">        tree[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans / k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -492,7 +493,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -514,7 +515,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
