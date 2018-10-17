@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="contest,贪心,动态规划," />
+  <meta name="keywords" content="contest,贪心,动态规划,前缀和," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="http://codeforces.com/contest/1066/problems A. Vova and Train题意：需要回答一系列的query。给定L, v, l, r, 已知每隔距离v会有一盏灯。上限为L。且l和r之间没有灯。问你总共有多少盏灯。解法：由于L的范围到达$1e9$，query个数也到达$1e4$, 暴力肯定不可行。所以只需要计算1-L间的灯的个数减去[l, r]区间内的">
-<meta name="keywords" content="contest,贪心,动态规划">
+<meta name="description" content="题面：http://codeforces.com/contest/1066/problems A. Vova and Train题意：需要回答一系列的query。给定L, v, l, r, 已知每隔距离v会有一盏灯。上限为L。且l和r之间没有灯。问你总共有多少盏灯。解法：由于L的范围到达$1e9$，query个数也到达$1e4$, 暴力肯定不可行。所以只需要计算1-L间的灯的个数减去[l, r]区">
+<meta name="keywords" content="contest,贪心,动态规划,前缀和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Round #515 (Div. 3)">
 <meta property="og:url" content="http://yoursite.com/2018/10/15/Codeforces-Round-515-Div-3/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="http://codeforces.com/contest/1066/problems A. Vova and Train题意：需要回答一系列的query。给定L, v, l, r, 已知每隔距离v会有一盏灯。上限为L。且l和r之间没有灯。问你总共有多少盏灯。解法：由于L的范围到达$1e9$，query个数也到达$1e4$, 暴力肯定不可行。所以只需要计算1-L间的灯的个数减去[l, r]区间内的">
+<meta property="og:description" content="题面：http://codeforces.com/contest/1066/problems A. Vova and Train题意：需要回答一系列的query。给定L, v, l, r, 已知每隔距离v会有一盏灯。上限为L。且l和r之间没有灯。问你总共有多少盏灯。解法：由于L的范围到达$1e9$，query个数也到达$1e4$, 暴力肯定不可行。所以只需要计算1-L间的灯的个数减去[l, r]区">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T03:18:16.000Z">
+<meta property="og:updated_time" content="2018-10-17T03:22:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces Round #515 (Div. 3)">
-<meta name="twitter:description" content="http://codeforces.com/contest/1066/problems A. Vova and Train题意：需要回答一系列的query。给定L, v, l, r, 已知每隔距离v会有一盏灯。上限为L。且l和r之间没有灯。问你总共有多少盏灯。解法：由于L的范围到达$1e9$，query个数也到达$1e4$, 暴力肯定不可行。所以只需要计算1-L间的灯的个数减去[l, r]区间内的">
+<meta name="twitter:description" content="题面：http://codeforces.com/contest/1066/problems A. Vova and Train题意：需要回答一系列的query。给定L, v, l, r, 已知每隔距离v会有一盏灯。上限为L。且l和r之间没有灯。问你总共有多少盏灯。解法：由于L的范围到达$1e9$，query个数也到达$1e4$, 暴力肯定不可行。所以只需要计算1-L间的灯的个数减去[l, r]区">
 
 
 
@@ -352,7 +352,7 @@
       
 
       
-        <p><a href="http://codeforces.com/contest/1066/problems" target="_blank" rel="noopener">http://codeforces.com/contest/1066/problems</a></p>
+        <p><strong>题面：<a href="http://codeforces.com/contest/1066/problems" target="_blank" rel="noopener">http://codeforces.com/contest/1066/problems</a></strong></p>
 <h4 id="A-Vova-and-Train"><a href="#A-Vova-and-Train" class="headerlink" title="A. Vova and Train"></a>A. Vova and Train</h4><p>题意：需要回答一系列的query。给定L, v, l, r, 已知每隔距离v会有一盏灯。上限为L。且l和r之间没有灯。问你总共有多少盏灯。<br>解法：由于L的范围到达$1e9$，query个数也到达$1e4$, 暴力肯定不可行。<br>所以只需要计算1-L间的灯的个数减去[l, r]区间内的灯的个数即可。<br><a id="more"></a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> L, v, l, r;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; L &gt;&gt; v &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        cnt += L / v;</span><br><span class="line">        cnt -= (r / v - (l - <span class="number">1</span>) / v);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="B-Heaters"><a href="#B-Heaters" class="headerlink" title="B. Heaters"></a>B. Heaters</h4><p>题意：在一排元素组成的序列中存在一些取暖器，每个取暖器能温暖到所有坐标为$[pos - r + 1, pos + r -1]$的点，pos为取暖器的位置。现给定这么一个序列，其中有一些位置是取暖器。现问你最少需要多少个取暖器就可以温暖所有的点。<br>解法：贪心。<br>事实上这一题做的时候思路并不是很清晰，很混乱。<br>最后想到的做法：每次判断当前取暖器是不是可以不放。所有我们可以用一个数组记录每个位置的“热度”，从左向右扫描，如果遇到取暖器就把所有覆盖的点热度加1。<br>然后每次判断当前取暖器不放是不是存在有点的热度减为0的情况，如果没有则说明可以不放<br>否则就说明这个取暖器可以不放。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">int</span> n, r, t;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e3</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn], dp[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; r;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        <span class="keyword">if</span>(a[i])cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i])</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = max(<span class="number">0</span>, i - r + <span class="number">1</span>); j &lt; min(n, i + r); j++)</span><br><span class="line">                dp[j]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">if</span>(dp[i] == <span class="number">0</span>)<span class="comment">//如果所有的取暖器都不能满足取暖需求</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = max(<span class="number">0</span>, i - r + <span class="number">1</span>); j &lt; min(n, i + r); j++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[j]--;</span><br><span class="line">            <span class="keyword">if</span>(dp[j] == <span class="number">0</span>) f = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f) cnt--;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = max(<span class="number">0</span>, i - r + <span class="number">1</span>); j &lt; min(n, i + r); j++)</span><br><span class="line">                dp[j]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="C-Books-Queries"><a href="#C-Books-Queries" class="headerlink" title="C. Books Queries"></a>C. Books Queries</h4><p>题意：有三种类型的query：</p>
@@ -387,6 +387,8 @@
             <a href="/tags/贪心/" rel="tag"># 贪心</a>
           
             <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+            <a href="/tags/前缀和/" rel="tag"># 前缀和</a>
           
         </div>
       
@@ -510,7 +512,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -587,6 +589,16 @@
 
   
 </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+
+ 
 
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
