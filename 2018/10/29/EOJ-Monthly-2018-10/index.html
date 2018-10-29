@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="contest,贪心,数学," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="题面：https://acm.ecnu.edu.cn/contest/113/ A. oxx 的小姐姐们题意：问是否用若干个$1 \times p$个长方形组成一个$m \times n$的长方形，长方形编号为1至$mn$若可以构成则输出每一个位置上的长方形编号否则输出No解法：要构成必须满足$p|mn$，又p为质数则$p|n$或者$p|m$，如果都不满足则输出no否则就先将可以整除的部分填满，剩">
+<meta name="keywords" content="contest,贪心,数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EOJ Monthly 2018.10">
 <meta property="og:url" content="http://yoursite.com/2018/10/29/EOJ-Monthly-2018-10/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
+<meta property="og:description" content="题面：https://acm.ecnu.edu.cn/contest/113/ A. oxx 的小姐姐们题意：问是否用若干个$1 \times p$个长方形组成一个$m \times n$的长方形，长方形编号为1至$mn$若可以构成则输出每一个位置上的长方形编号否则输出No解法：要构成必须满足$p|mn$，又p为质数则$p|n$或者$p|m$，如果都不满足则输出no否则就先将可以整除的部分填满，剩">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-29T09:35:29.000Z">
+<meta property="og:updated_time" content="2018-10-29T14:47:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EOJ Monthly 2018.10">
+<meta name="twitter:description" content="题面：https://acm.ecnu.edu.cn/contest/113/ A. oxx 的小姐姐们题意：问是否用若干个$1 \times p$个长方形组成一个$m \times n$的长方形，长方形编号为1至$mn$若可以构成则输出每一个位置上的长方形编号否则输出No解法：要构成必须满足$p|mn$，又p为质数则$p|n$或者$p|m$，如果都不满足则输出no否则就先将可以整除的部分填满，剩">
 
 
 
@@ -299,6 +303,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/EOJ月赛/" itemprop="url" rel="index">
+                    <span itemprop="name">EOJ月赛</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -326,7 +352,12 @@
       
 
       
-        
+        <p><strong>题面：<a href="https://acm.ecnu.edu.cn/contest/113/" target="_blank" rel="noopener">https://acm.ecnu.edu.cn/contest/113/</a></strong></p>
+<h4 id="A-oxx-的小姐姐们"><a href="#A-oxx-的小姐姐们" class="headerlink" title="A. oxx 的小姐姐们"></a>A. oxx 的小姐姐们</h4><p>题意：问是否用若干个$1 \times p$个长方形组成一个$m \times n$的长方形，长方形编号为1至$mn$若可以构成则输出每一个位置上的长方形编号否则输出No<br>解法：要构成必须满足$p|mn$，又p为质数则$p|n$或者$p|m$，如果都不满足则输出no<br>否则就先将可以整除的部分填满，剩下的不能整除的部分用边长为1的那条边长去填。<br><a id="more"></a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a % b == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">return</span> gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">200</span>][<span class="number">200</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n, m, p;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">    <span class="keyword">if</span>(n % p &amp;&amp; m % p)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">if</span>(n % p == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> idx = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> t = m / p;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; t; k++,idx++)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = k * p; j &lt; (k + <span class="number">1</span>) * p; j++)</span><br><span class="line">                        a[i][j] = idx;</span><br><span class="line">            t = m % p;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = m / p * p; i &lt; m; i++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n / p; k++, idx++)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = k * p; j &lt; (k + <span class="number">1</span>) * p; j++)</span><br><span class="line">                        a[j][i] = idx;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> idx = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> t = m / p;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; t; k++,idx++)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = k * p; j &lt; (k + <span class="number">1</span>) * p; j++)</span><br><span class="line">                        a[i][j] = idx;</span><br><span class="line">            t = m % p;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = m / p * p; i &lt; m; i++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n / p; k++, idx++)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = k * p; j &lt; (k + <span class="number">1</span>) * p; j++)</span><br><span class="line">                        a[j][i] = idx;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++, <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; a[i][j] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="B-莫干山奇遇"><a href="#B-莫干山奇遇" class="headerlink" title="B. 莫干山奇遇"></a>B. 莫干山奇遇</h4><p>题意：给一个长度为$n$的序列 $a_1,a_2,…,a_n$，求一个长度为$m$的序列$b_1,b_2,…,b_m$使得：<br> $a_1,a_2,…,a_n$是$b_1,b_2,…,b_m$的子序列（不一定连续），且存在常数$p&gt;0$使得$b_1,b_2,…,b_m$是一个 p-莫干山序列。<br>序列$s_1,s_2,…,s_n$是$p$-莫干山序列，当且仅当：存在$0 ≤i x &lt; p $对于$1≤i≤n$满足$s_i=(x+i)modp$。<br>解法：首先注意到 p 的取值应该就是 $max a_i+1$。然后可以发现最后的序列一定是连续循环的序列。相邻两项之间贪心地填东西。不断地补就可以了。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-6</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> mmax = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        mmax = max(mmax, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    ll cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] - a[i - <span class="number">1</span>] == <span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] - a[i - <span class="number">1</span>] &gt; <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cnt += a[i] - a[i - <span class="number">1</span>] - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                cnt += mmax - a[i - <span class="number">1</span>];</span><br><span class="line">                cnt += a[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt + n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="C-痛苦的-01-矩阵"><a href="#C-痛苦的-01-矩阵" class="headerlink" title="C. 痛苦的 01 矩阵"></a>C. 痛苦的 01 矩阵</h4><p>题意：现有一个$n\times n$的 01 矩阵 M。<br>定义$cost(i,j)$为：把第$i$行和第$j$列全部变成1最少需要改动多少个元素。<br>定义矩阵的痛苦值$pain(M)$为：</p>
+<script type="math/tex; mode=display">pain(M)=\left(\sum_{i = 1}^n \sum_{j = 1}^{n}(cost(i, j))^2 \right) mod (10^9 + 7)</script><p>求出初始矩阵的痛苦值和每次修改操作之后的痛苦值。<br>每次操作是将原先位置上的数字翻转。<br>解法：用一个数学式子将每次需要计算的痛苦值进行替换。<br>用 ri 表示第 i 行有多少个 0，用 ci 表示第 j 列有多少个 0，bij 表示第 i 行第 j 列是否为 0。则cost(i,j)=ri+cj−bij 。<br>对痛苦值的式子进行展开得到<script type="math/tex">(n−2) \sum_{i=1}^n c_i^2+(n−2)\sum_{i=1}^n r_i^2+2C^2+C</script><br>其中 C 为整个矩阵中 0 的个数。<br>只需要计算每次修改带来的列和行和总数的变化即可。<br>计算的时候需要注意取模计算不要溢出或者减多了即可。<br>给一个tip(经验教训)如果需要取模计算减的话可以先加一个模的东西再减。<br>如果相乘爆long long了可以按位进行计算、给出了模板(虽然没用到)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-6</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mo %= MOD</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">ll r[maxn], b[maxn];</span><br><span class="line">ll C;</span><br><span class="line"><span class="built_in">map</span>&lt;pii, <span class="keyword">int</span>&gt; Q;</span><br><span class="line"><span class="function">ll <span class="title">mul</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">0</span>, step = a % MOD;</span><br><span class="line">    <span class="keyword">while</span> (b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1L</span>) ans += step;</span><br><span class="line">        <span class="keyword">if</span> (ans &gt;= MOD) ans %= MOD;</span><br><span class="line">        step &lt;&lt;= <span class="number">1L</span>;</span><br><span class="line">        <span class="keyword">if</span> (step &gt;= MOD) step %= MOD;</span><br><span class="line">        b &gt;&gt;= <span class="number">1L</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans % MOD;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">   <span class="comment">// freopen("in.txt", "r", stdin);</span></span><br><span class="line">    ll n, k, q;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k &gt;&gt; q;</span><br><span class="line">    C = n * n - k;</span><br><span class="line">    C mo;</span><br><span class="line">    <span class="keyword">while</span>(k--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        Q[mp(x, y)] = <span class="number">1</span>;</span><br><span class="line">        r[x]++, b[y]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        r[i] = n - r[i];</span><br><span class="line">        b[i] = n - b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans += (r[i] * r[i] % MOD + b[i] * b[i] % MOD);</span><br><span class="line">        ans mo;</span><br><span class="line">    &#125;</span><br><span class="line">    ans mo;</span><br><span class="line">    ans = ans * (n - <span class="number">2</span>);</span><br><span class="line">    ans += <span class="number">2</span> * C * C + C;</span><br><span class="line">    ans mo;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">while</span>(q--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        <span class="keyword">if</span>(Q[mp(u, v)] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Q[mp(u, v)] = <span class="number">1</span>;</span><br><span class="line">            ans = ans + <span class="number">1</span> + MOD - <span class="number">4</span> * C % MOD;</span><br><span class="line">            C--;</span><br><span class="line">            ans = ans + MOD - (n - <span class="number">2</span>) * (<span class="number">2</span> * r[u] - <span class="number">1</span>) % MOD;</span><br><span class="line">            r[u]--;</span><br><span class="line">            ans = ans + MOD - (n - <span class="number">2</span>) * (<span class="number">2</span> * b[v] - <span class="number">1</span>) % MOD;</span><br><span class="line">            b[v]--;</span><br><span class="line">            ans mo;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Q[mp(u, v)] = <span class="number">0</span>;</span><br><span class="line">            ans = ans + <span class="number">1</span> + <span class="number">4</span> * C + <span class="number">2</span>;</span><br><span class="line">            C++;</span><br><span class="line">            ans = ans + (n - <span class="number">2</span>) * (<span class="number">2</span> * r[u] + <span class="number">1</span>) % MOD;</span><br><span class="line">            ans mo;</span><br><span class="line">            r[u]++;</span><br><span class="line">            ans = ans + (n - <span class="number">2</span>) * (<span class="number">2</span> * b[v] + <span class="number">1</span>) % MOD;</span><br><span class="line">            ans mo;</span><br><span class="line">            b[v]++;</span><br><span class="line">            ans mo;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -340,6 +371,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/contest/" rel="tag"># contest</a>
+          
+            <a href="/tags/贪心/" rel="tag"># 贪心</a>
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+        </div>
       
 
       
@@ -410,8 +451,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -441,7 +491,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -452,7 +502,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -491,6 +541,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-oxx-的小姐姐们"><span class="nav-number">1.</span> <span class="nav-text">A. oxx 的小姐姐们</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-莫干山奇遇"><span class="nav-number">2.</span> <span class="nav-text">B. 莫干山奇遇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-痛苦的-01-矩阵"><span class="nav-number">3.</span> <span class="nav-text">C. 痛苦的 01 矩阵</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -700,6 +766,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
