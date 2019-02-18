@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="题意大四的教主们毕业了。虽然是教主，但是毕业前都得拿出毕业设计才能得到学士学位，正式毕业。 毕业设计文档的排版有严格要求，排版上不能有一点错误，哪怕已经打印了，也要再修改文档重新打印，所以文档必须排版良好，整齐美观。 然后就有了如下求“整齐度”的简化的题目：假设正文是$n$个长度分别为$L_1、L_2、……、L_n$（以字符个数度量，不计空白子字符）的单词构成的序列。我们希望将这个段落在一些行上整">
+<meta name="description" content="题意大四的教主们毕业了。虽然是教主，但是毕业前都得拿出毕业设计才能得到学士学位，正式毕业。 毕业设计文档的排版有严格要求，排版上不能有一点错误，哪怕已经打印了，也要再修改文档重新打印，所以文档必须排版良好，整齐美观。 然后就有了如下求“整齐度”的简化的题目：">
 <meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hrbust 1476 教主们毕业设计排版">
 <meta property="og:url" content="http://yoursite.com/2019/01/12/hrbust-1476-教主们毕业设计排版/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="题意大四的教主们毕业了。虽然是教主，但是毕业前都得拿出毕业设计才能得到学士学位，正式毕业。 毕业设计文档的排版有严格要求，排版上不能有一点错误，哪怕已经打印了，也要再修改文档重新打印，所以文档必须排版良好，整齐美观。 然后就有了如下求“整齐度”的简化的题目：假设正文是$n$个长度分别为$L_1、L_2、……、L_n$（以字符个数度量，不计空白子字符）的单词构成的序列。我们希望将这个段落在一些行上整">
+<meta property="og:description" content="题意大四的教主们毕业了。虽然是教主，但是毕业前都得拿出毕业设计才能得到学士学位，正式毕业。 毕业设计文档的排版有严格要求，排版上不能有一点错误，哪怕已经打印了，也要再修改文档重新打印，所以文档必须排版良好，整齐美观。 然后就有了如下求“整齐度”的简化的题目：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-14T04:53:21.000Z">
+<meta property="og:updated_time" content="2019-02-18T07:11:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hrbust 1476 教主们毕业设计排版">
-<meta name="twitter:description" content="题意大四的教主们毕业了。虽然是教主，但是毕业前都得拿出毕业设计才能得到学士学位，正式毕业。 毕业设计文档的排版有严格要求，排版上不能有一点错误，哪怕已经打印了，也要再修改文档重新打印，所以文档必须排版良好，整齐美观。 然后就有了如下求“整齐度”的简化的题目：假设正文是$n$个长度分别为$L_1、L_2、……、L_n$（以字符个数度量，不计空白子字符）的单词构成的序列。我们希望将这个段落在一些行上整">
+<meta name="twitter:description" content="题意大四的教主们毕业了。虽然是教主，但是毕业前都得拿出毕业设计才能得到学士学位，正式毕业。 毕业设计文档的排版有严格要求，排版上不能有一点错误，哪怕已经打印了，也要再修改文档重新打印，所以文档必须排版良好，整齐美观。 然后就有了如下求“整齐度”的简化的题目：">
 
 
 
@@ -354,7 +354,7 @@
       
         <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>大四的教主们毕业了。<br>虽然是教主，但是毕业前都得拿出毕业设计才能得到学士学位，正式毕业。</p>
 <p>毕业设计文档的排版有严格要求，排版上不能有一点错误，哪怕已经打印了，也要再修改文档重新打印，所以文档必须排版良好，整齐美观。</p>
-<p>然后就有了如下求“整齐度”的简化的题目：<br>假设正文是$n$个长度分别为$L_1、L_2、……、L_n$（以字符个数度量，不计空白子字符）的单词构成的序列。我们希望将这个段落在一些行上整齐地打印出来，每行至多M个字符。“整齐度”的标准如下：如果某一行包含从i到j的单词$（i &lt; j）$，且单词之间只留一个空格，则在行末多余的空格字符个数为$M - (j-i) - (L_i+ …… + L_j)$，它必须是非负值才能让该行容纳这些单词。我们希望所有行（除最后一行）的行末多余空格字符个数的立方和最小，这个立方和就是“整齐度”。<br><a id="more"></a></p>
+<p>然后就有了如下求“整齐度”的简化的题目：<a id="more"></a><br>假设正文是$n$个长度分别为$L_1、L_2、……、L_n$（以字符个数度量，不计空白子字符）的单词构成的序列。我们希望将这个段落在一些行上整齐地打印出来，每行至多M个字符。“整齐度”的标准如下：如果某一行包含从i到j的单词$（i &lt; j）$，且单词之间只留一个空格，则在行末多余的空格字符个数为$M - (j-i) - (L_i+ …… + L_j)$，它必须是非负值才能让该行容纳这些单词。我们希望所有行（除最后一行）的行末多余空格字符个数的立方和最小，这个立方和就是“整齐度”。</p>
 <h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>有多组测试数据，每组测试数据有两行。<br>第一行为两个整数n, m，n(1&lt;=n&lt;=2000)表示单词个数， m(1&lt;=m&lt;=500)表示每行最多的字符数。<br>第二行为正文的n个单词的长度Li(1&lt;=Li&lt;=m)，它们按在正文出出现的顺序给出。</p>
 <h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>每组测试输出一行，包含一个整数，表示最优整齐度。</p>
 <h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><blockquote>
@@ -484,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -506,7 +506,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
