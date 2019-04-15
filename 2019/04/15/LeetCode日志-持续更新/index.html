@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="动态规划," />
+  <meta name="keywords" content="双指针," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="题面：https://www.luogu.org/problemnew/show/P1541 题意给定一个棋盘，上面由N个格子。每个格子上面有一个对应的分数。同时有若干张卡片上面分别是1，2，3，4。每张卡片使用后可以前进对应的格数。显然不同的使用卡片会导致不同的分数。求最后能获得的最大分数。">
-<meta name="keywords" content="动态规划">
+<meta name="description" content="双指针回文字符串680. 验证回文字符串 Ⅱ由于每次可以删除一个字符，所以从两端开始向中间扫描，如果有不同的字符则判断删除前一个或者后一个看是否构成回文串。">
+<meta name="keywords" content="双指针">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P1541 乌龟棋">
-<meta property="og:url" content="http://yoursite.com/2019/03/31/P1541-乌龟棋/index.html">
+<meta property="og:title" content="LeetCode日志(持续更新)">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/LeetCode日志-持续更新/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="题面：https://www.luogu.org/problemnew/show/P1541 题意给定一个棋盘，上面由N个格子。每个格子上面有一个对应的分数。同时有若干张卡片上面分别是1，2，3，4。每张卡片使用后可以前进对应的格数。显然不同的使用卡片会导致不同的分数。求最后能获得的最大分数。">
+<meta property="og:description" content="双指针回文字符串680. 验证回文字符串 Ⅱ由于每次可以删除一个字符，所以从两端开始向中间扫描，如果有不同的字符则判断删除前一个或者后一个看是否构成回文串。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T18:00:27.000Z">
+<meta property="og:updated_time" content="2019-04-15T12:27:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="P1541 乌龟棋">
-<meta name="twitter:description" content="题面：https://www.luogu.org/problemnew/show/P1541 题意给定一个棋盘，上面由N个格子。每个格子上面有一个对应的分数。同时有若干张卡片上面分别是1，2，3，4。每张卡片使用后可以前进对应的格数。显然不同的使用卡片会导致不同的分数。求最后能获得的最大分数。">
+<meta name="twitter:title" content="LeetCode日志(持续更新)">
+<meta name="twitter:description" content="双指针回文字符串680. 验证回文字符串 Ⅱ由于每次可以删除一个字符，所以从两端开始向中间扫描，如果有不同的字符则判断删除前一个或者后一个看是否构成回文串。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/31/P1541-乌龟棋/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/LeetCode日志-持续更新/"/>
 
 
 
 
 
-  <title>P1541 乌龟棋 | Qjchen's Blog</title>
+  <title>LeetCode日志(持续更新) | Qjchen's Blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/P1541-乌龟棋/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/LeetCode日志-持续更新/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qjchen">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">P1541 乌龟棋</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode日志(持续更新)</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T01:01:40+08:00">
-                2019-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T19:52:06+08:00">
+                2019-04-15
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dp/" itemprop="url" rel="index">
-                    <span itemprop="name">dp</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/31/P1541-乌龟棋/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/31/P1541-乌龟棋/" itemprop="commentCount"></span>
+                <a href="/2019/04/15/LeetCode日志-持续更新/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/15/LeetCode日志-持续更新/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,9 +362,8 @@
       
 
       
-        <p><strong>题面：<a href="https://www.luogu.org/problemnew/show/P1541" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1541</a></strong></p>
-<h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给定一个棋盘，上面由N个格子。每个格子上面有一个对应的分数。同时有若干张卡片上面分别是1，2，3，4。每张卡片使用后可以前进对应的格数。显然不同的使用卡片会导致不同的分数。求最后能获得的最大分数。<br><a id="more"></a></p>
-<h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p>乍看之下，是个dp<br>但是好像不是很好写，想了一段时间也没想出来状态。<br>然后发现由于卡片只有四种。<br>我们可以用$dp[c1][c2][c3][c4][i]$表示每种卡片分别用了$c1, c2, c3, c4$张时到达第$i$个格子时获得的最大分数。<br>这样每次转移就是多一张卡片带来的结果改变。<br>但这样发现空间需要$40 ^4 \cdot 120$空间开不下。<br>发现每次转移的时候前一个状态只会在前四个格子内向后转移。所以可以用取模只需要5个位置<br>但是这样时间复杂度到达$O(40 ^4 \cdot 120)$会超时<br>然后发现蠢了，可以去掉最后一个维度，因为用了多少张卡片会有到达一个固定的位置。<br>所以就去掉最后一个维度，直接dp就好了<br>回过头来想，这个就是一个多重背包问题。<br>每个物品的体积为1，价值为格子对应的分数。<br>做完了。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">40</span>][<span class="number">40</span>][<span class="number">40</span>][<span class="number">40</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">        b[t]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">-0x7f</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = a[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> c1 = <span class="number">0</span>; c1 &lt;= b[<span class="number">1</span>]; c1++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> c2 = <span class="number">0</span>; c2 &lt;= b[<span class="number">2</span>]; c2++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> c3 = <span class="number">0</span>; c3 &lt;= b[<span class="number">3</span>]; c3++)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> c4 = <span class="number">0</span>; c4 &lt;= b[<span class="number">4</span>]; c4++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">int</span> temp = c1 + c2 * <span class="number">2</span> + c3 * <span class="number">3</span> + c4 * <span class="number">4</span> + <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">if</span>(c4 &gt;= <span class="number">1</span>)</span><br><span class="line">                            dp[c1][c2][c3][c4] = max(dp[c1][c2][c3][c4], dp[c1][c2][c3][c4 - <span class="number">1</span>] + a[temp]);</span><br><span class="line">                        <span class="keyword">if</span>(c3 &gt;= <span class="number">1</span>)</span><br><span class="line">                            dp[c1][c2][c3][c4] = max(dp[c1][c2][c3][c4], dp[c1][c2][c3 - <span class="number">1</span>][c4] + a[temp]);</span><br><span class="line">                        <span class="keyword">if</span>(c2 &gt;= <span class="number">1</span>)</span><br><span class="line">                            dp[c1][c2][c3][c4] = max(dp[c1][c2][c3][c4], dp[c1][c2 - <span class="number">1</span>][c3][c4] + a[temp]);</span><br><span class="line">                        <span class="keyword">if</span>(c1 &gt;= <span class="number">1</span>)</span><br><span class="line">                            dp[c1][c2][c3][c4] = max(dp[c1][c2][c3][c4], dp[c1 - <span class="number">1</span>][c2][c3][c4] + a[temp]);</span><br><span class="line">                    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[b[<span class="number">1</span>]][b[<span class="number">2</span>]][b[<span class="number">3</span>]][b[<span class="number">4</span>]] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><h5 id="回文字符串"><a href="#回文字符串" class="headerlink" title="回文字符串"></a>回文字符串</h5><p><a href="https://leetcode-cn.com/problems/valid-palindrome-ii/description/" target="_blank" rel="noopener">680. 验证回文字符串 Ⅱ</a><br>由于每次可以删除一个字符，所以从两端开始向中间扫描，如果有不同的字符则判断删除前一个或者后一个看是否构成回文串。<br><a id="more"></a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">validPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> len = s.length();</span><br><span class="line">      <span class="built_in">string</span> t = s;</span><br><span class="line">      reverse(s.begin(), s.end());</span><br><span class="line">      <span class="keyword">if</span>(t == s)</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">int</span> l = <span class="number">-1</span>, r = len;</span><br><span class="line">      <span class="keyword">while</span>(++l &lt; --r)&#123;</span><br><span class="line">          <span class="keyword">if</span>(s[l] != s[r])&#123;</span><br><span class="line">              <span class="keyword">return</span> isPalidrome(s, l, r - <span class="number">1</span>) || isPalidrome(s, l + <span class="number">1</span>, r);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalidrome</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i++] != s[j--])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h5 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h5><p><a href="https://leetcode-cn.com/problems/linked-list-cycle/description/" target="_blank" rel="noopener">141. 环形链表</a><br>用两个快慢指针，一个每次前进一格，一个每次前进两个。如果有环则这两个指针一定会相遇。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        ListNode *slow = head, *fast = head -&gt; next;</span><br><span class="line">        <span class="keyword">while</span>(fast != slow)&#123;</span><br><span class="line">            <span class="keyword">if</span>(fast == <span class="literal">NULL</span> || fast -&gt; next == <span class="literal">NULL</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            slow = slow -&gt; next;</span><br><span class="line">            fast = fast -&gt; next -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -382,7 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+            <a href="/tags/双指针/" rel="tag"># 双指针</a>
           
         </div>
       
@@ -395,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/25/Codeforces-Round-415-Div-2/" rel="next" title="Codeforces Round #415 (Div. 2)">
-                <i class="fa fa-chevron-left"></i> Codeforces Round #415 (Div. 2)
+              <a href="/2019/04/08/2019蓝桥杯A组H题/" rel="next" title="2019蓝桥杯A组H题">
+                <i class="fa fa-chevron-left"></i> 2019蓝桥杯A组H题
               </a>
             
           </div>
@@ -404,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/02/hihoCoder-1290-Demo-Day/" rel="prev" title="hihoCoder #1290 : Demo Day">
-                hihoCoder #1290 : Demo Day <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -580,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#双指针"><span class="nav-number">1.</span> <span class="nav-text">双指针</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回文字符串"><span class="nav-number">1.0.1.</span> <span class="nav-text">回文字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#环形链表"><span class="nav-number">1.0.2.</span> <span class="nav-text">环形链表</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
