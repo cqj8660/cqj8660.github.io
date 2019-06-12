@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="题面：https://leetcode-cn.com/problems/burst-balloons/ 题意有$n$个气球，编号为$0$到$n-1$，每个气球上都标有一个数字，这些数字存在数组$nums$中。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-12T17:04:56.000Z">
+<meta property="og:updated_time" content="2019-06-12T17:10:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 312. 戳气球">
 <meta name="twitter:description" content="题面：https://leetcode-cn.com/problems/burst-balloons/ 题意有$n$个气球，编号为$0$到$n-1$，每个气球上都标有一个数字，这些数字存在数组$nums$中。">
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  325
+                  333
                 </span>
               
 
@@ -373,25 +373,8 @@
       
         <p><strong>题面：<a href="https://leetcode-cn.com/problems/burst-balloons/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/burst-balloons/</a></strong></p>
 <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>有$n$个气球，编号为$0$到$n-1$，每个气球上都标有一个数字，这些数字存在数组$nums$中。<br><a id="more"></a><br>现在要求你戳破所有的气球。<br>每当你戳破一个气球$i$时，你可以获得$ nums[left] \times nums[i] \times nums[right]$ 个硬币。 这里的$left$和$right$代表和$i$相邻的两个气球的序号。注意当你戳破了气球$i$后，气球$left$和气球$right$就变成了相邻的气球。<br>求所能获得硬币的最大数量。</p>
-<h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p>肯定是dp了。<br>而且是一个区间dp。令$dp[i][j]$表示戳破$i+1, i+2, …, j - 1$个气球<br>设$k$是$i~j$中最后一个被戳破的气球，则$dp[i][j] = dp[i][k] + dp[k][j] + nums[k] \times num[i] \times nums[j]$<br>然后区间长度从小到大转移即可。</p>
-<pre><code class="lang-cpp">class Solution {
-public:
-    int maxCoins(vector&lt;int&gt;&amp; nums) {
-        int len = nums.size();
-        int dp[len + 10][len + 10] = {};
-        vector&lt;int&gt; a(len + 10);
-        a[0] = a[len + 1] = 1;
-        for(int i = 0; i &lt; len; i++)
-            a[i + 1] = nums[i];
-        for(int l = 2; l &lt;= len + 1; l++)
-            for(int i = 0, j = i + l; j &lt;= len + 1; i++, j++)
-                for(int k = i + 1; k &lt; j; k++)
-                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[k][j] + a[i] * a[k] * a[j]);
-
-        return dp[0][len + 1];
-    }
-};
-</code></pre>
+<h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p>肯定是dp了。<br>而且是一个区间dp。令$dp[i][j]$表示戳破$i+1, i+2, …, j - 1$个气球<br>设$k$是$i$到$j$中最后一个被戳破的气球，则有</p>
+<script type="math/tex; mode=display">dp[i][j] = dp[i][k] + dp[k][j] + nums[k] \times num[i] \times nums[j]</script><p>然后区间长度从小到大转移即可。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxCoins</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.size();</span><br><span class="line">        <span class="keyword">int</span> dp[len + <span class="number">10</span>][len + <span class="number">10</span>] = &#123;&#125;;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(len + <span class="number">10</span>);</span><br><span class="line">        a[<span class="number">0</span>] = a[len + <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">            a[i + <span class="number">1</span>] = nums[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= len + <span class="number">1</span>; l++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = i + l; j &lt;= len + <span class="number">1</span>; i++, j++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = i + <span class="number">1</span>; k &lt; j; k++)</span><br><span class="line">                    dp[i][j] = max(dp[i][j], dp[i][k] + dp[k][j] + a[i] * a[k] * a[j]);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][len + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -640,7 +623,7 @@ public:
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">61.6k</span>
+    <span title="Site words total count">61.7k</span>
   
 </div>
 
