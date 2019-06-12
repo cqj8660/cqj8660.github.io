@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="题面：https://leetcode-cn.com/problems/burst-balloons/ 题意有$n$个气球，编号为$0$到$n-1$，每个气球上都标有一个数字，这些数字存在数组$nums$中。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-09T14:53:58.000Z">
+<meta property="og:updated_time" content="2019-06-12T17:04:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 312. 戳气球">
 <meta name="twitter:description" content="题面：https://leetcode-cn.com/problems/burst-balloons/ 题意有$n$个气球，编号为$0$到$n-1$，每个气球上都标有一个数字，这些数字存在数组$nums$中。">
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  323
+                  325
                 </span>
               
 
@@ -373,7 +373,7 @@
       
         <p><strong>题面：<a href="https://leetcode-cn.com/problems/burst-balloons/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/burst-balloons/</a></strong></p>
 <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>有$n$个气球，编号为$0$到$n-1$，每个气球上都标有一个数字，这些数字存在数组$nums$中。<br><a id="more"></a><br>现在要求你戳破所有的气球。<br>每当你戳破一个气球$i$时，你可以获得$ nums[left] \times nums[i] \times nums[right]$ 个硬币。 这里的$left$和$right$代表和$i$相邻的两个气球的序号。注意当你戳破了气球$i$后，气球$left$和气球$right$就变成了相邻的气球。<br>求所能获得硬币的最大数量。</p>
-<h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p>肯定是dp了。<br>而且是一个区间dp。令$dp[i][j]$表示戳破$i+1, i+2, …, j - 1$个气球<br>设$k$是$i~j$中最后一个被戳破的气球，则$dp[i][j] = dp[i][k] + dp[k][j] + nums[k] <em> num[i] </em> nums[j]$<br>然后区间长度从小到大转移即可。</p>
+<h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p>肯定是dp了。<br>而且是一个区间dp。令$dp[i][j]$表示戳破$i+1, i+2, …, j - 1$个气球<br>设$k$是$i~j$中最后一个被戳破的气球，则$dp[i][j] = dp[i][k] + dp[k][j] + nums[k] \times num[i] \times nums[j]$<br>然后区间长度从小到大转移即可。</p>
 <pre><code class="lang-cpp">class Solution {
 public:
     int maxCoins(vector&lt;int&gt;&amp; nums) {
