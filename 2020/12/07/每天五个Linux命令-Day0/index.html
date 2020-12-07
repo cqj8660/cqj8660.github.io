@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="每天五个linux命令(1): ls一、ls命令1. 命令格式： ls [选项] [目录名] 2. 命令功能： 列出目标目录中所有的子目录和文件。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每天五个Linux命令-Day0">
+<meta property="og:url" content="http://yoursite.com/2020/12/07/每天五个Linux命令-Day0/index.html">
+<meta property="og:site_name" content="Qjchen&#39;s Blog">
+<meta property="og:description" content="每天五个linux命令(1): ls一、ls命令1. 命令格式： ls [选项] [目录名] 2. 命令功能： 列出目标目录中所有的子目录和文件。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-07T07:47:07.711Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每天五个Linux命令-Day0">
+<meta name="twitter:description" content="每天五个linux命令(1): ls一、ls命令1. 命令格式： ls [选项] [目录名] 2. 命令功能： 列出目标目录中所有的子目录和文件。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/12/07/每天五个Linux命令-Day0/"/>
+
+
+
+
+
+  <title>每天五个Linux命令-Day0 | Qjchen's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qjchen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">但问耕耘，莫问收获</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/07/每天五个Linux命令-Day0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qjchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qjchen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">每天五个Linux命令-Day0</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-07T15:40:26+08:00">
+                2020-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/12/07/每天五个Linux命令-Day0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/12/07/每天五个Linux命令-Day0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="每天五个linux命令-1-ls"><a href="#每天五个linux命令-1-ls" class="headerlink" title="每天五个linux命令(1): ls"></a>每天五个linux命令(1): ls</h2><h3 id="一、ls命令"><a href="#一、ls命令" class="headerlink" title="一、ls命令"></a>一、ls命令</h3><p><strong>1.</strong> <strong>命令格式：</strong></p>
+<p>ls [选项] [目录名]</p>
+<p><strong>2.</strong> <strong>命令功能：</strong></p>
+<p>列出目标目录中所有的子目录和文件。<br><a id="more"></a><br><strong>3. 常用参数</strong></p>
+<p>-a, –all 列出目录下的所有文件，包括以 . 开头的隐含文件</p>
+<p>-A 同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)。</p>
+<p>-c  配合 -lt：根据 ctime 排序及显示 ctime (文件状态最后更改的时间)配合 -l：显示 ctime 但根据名称排序否则：根据 ctime 排序</p>
+<p>-C 每栏由上至下列出项目</p>
+<p>–color[=WHEN] 控制是否使用色彩分辨文件。WHEN 可以是’never’、’always’或’auto’其中之一</p>
+<p>-d, –directory 将目录象文件一样显示，而不是显示其下的文件。</p>
+<p>-D, –dired 产生适合 Emacs 的 dired 模式使用的结果</p>
+<p>-f 对输出的文件不进行排序，-aU 选项生效，-lst 选项失效</p>
+<p>-g 类似 -l,但不列出所有者</p>
+<p>-G, –no-group 不列出任何有关组的信息</p>
+<p>-h, –human-readable 以容易理解的格式列出文件大小 (例如 1K 234M 2G)</p>
+<p>–si 类似 -h,但文件大小取 1000 的次方而不是 1024</p>
+<p>-H, –dereference-command-line 使用命令列中的符号链接指示的真正目的地</p>
+<p>–indicator-style=方式 指定在每个项目名称后加上指示符号&lt;方式&gt;：none (默认)，classify (-F)，file-type (-p)</p>
+<p>-i, –inode 印出每个文件的 inode 号</p>
+<p>-I, –ignore=样式 不印出任何符合 shell 万用字符&lt;样式&gt;的项目</p>
+<p>-k 即 –block-size=1K,以 k 字节的形式表示文件的大小。</p>
+<p>-l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来。</p>
+<p>-L, –dereference 当显示符号链接的文件信息时，显示符号链接所指示的对象而并非符号链接本身的信息</p>
+<p>-m 所有项目以逗号分隔，并填满整行行宽</p>
+<p>-o 类似 -l,显示文件的除组信息外的详细信息。   </p>
+<p>-r, –reverse 依相反次序排列</p>
+<p>-R, –recursive 同时列出所有子目录层</p>
+<p>-s, –size 以块大小为单位列出所有文件的大小</p>
+<p>-S 根据文件大小排序</p>
+<p>–sort=WORD 以下是可选用的 WORD 和它们代表的相应选项：</p>
+<p>extension -X status -c</p>
+<p>none -U time -t</p>
+<p>size -S atime -u</p>
+<p>time -t access -u</p>
+<p>version -v use -u</p>
+<p>-t 以文件修改时间排序</p>
+<p>-u 配合 -lt:显示访问时间而且依访问时间排序</p>
+<p>配合 -l:显示访问时间但根据名称排序</p>
+<p>否则：根据访问时间排序</p>
+<p>-U 不进行排序;依文件系统原有的次序列出项目</p>
+<p>-v 根据版本进行排序</p>
+<p>-w, –width=COLS 自行指定屏幕宽度而不使用目前的数值</p>
+<p>-x 逐行列出项目而不是逐栏列出</p>
+<p>-X 根据扩展名排序</p>
+<p>-1 每行只列出一个文件</p>
+<p>–help 显示此帮助信息并离开</p>
+<p>–version 显示版本信息并离开</p>
+<p><strong>4. 常用范例</strong></p>
+<p><strong>例一：列出/home/qjchen/Desktop/shell_code文件夹下的所有文件和目录的详细资料</strong></p>
+<p><strong>命令：</strong>ls -l -R /home/qjchen/Desktop/shell_code <strong>or</strong> ls -lR /home/qjchen/Desktop/shell_code</p>
+<p><strong>例二：列出当前目录中所有以“1”开头的目录的详细内容，可以使用如下命令：</strong></p>
+<p><strong>命令：</strong>ls -l 1*</p>
+<p><strong>例三：只列出文件下的子目录</strong></p>
+<p><strong>命令：</strong>ls -F | grep /$ <strong>or</strong>  ls -l |grep “^d”</p>
+<p>/$表示以/作为结束符 ^d表示以d作为开始符</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">qjchen@ubuntu:~$ ls -F | grep /$</span><br><span class="line">Desktop/</span><br><span class="line">Documents/</span><br><span class="line">Downloads/</span><br><span class="line">Music/</span><br><span class="line">Public/</span><br><span class="line">Templates/</span><br><span class="line">Videos/</span><br><span class="line">qjchen@ubuntu:~$ ls -l |grep "^d"</span><br><span class="line">drwxr-xr-x 3 qjchen qjchen 4096 Dec  4 00:50 Desktop</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 19:31 Documents</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 19:31 Downloads</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 19:31 Music</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 19:31 Public</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 19:31 Templates</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 19:31 Videos</span><br></pre></td></tr></table></figure>
+<p><strong>例四</strong>：列出目前工作目录下所有名称是1开头的档案，越新的排越后面，可以使用如下命令：</p>
+<p><strong>命令</strong>：ls -ltr 1*</p>
+<p>说明：-r, –reverse 依相反次序排列；-t 以文件修改时间排序</p>
+<p><strong>例五：列出目前工作目录下所有档案及目录;目录于名称后加”/“, 可执行档于名称后加”*“</strong> </p>
+<p><strong>命令</strong>：ls -AF</p>
+<p>说明：-F参数使得ls命令可以在显示子目录的时候在它的文件名之后加上一个斜线(“/”)字符。而文件后面的星号(“*”)字符表示这是一个可执行程序</p>
+<p><strong>例六：计算当前目录下的文件数和目录数</strong></p>
+<p>命令：</p>
+<p>ls -l * |grep “^-“|wc -l —-文件个数 </p>
+<p>ls -l * |grep “^d”|wc -l  —-目录个数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">qjchen@ubuntu:~/Desktop/shell_code$ ls -l * |grep "^-"</span><br><span class="line">-rw-rw-r-- 1 qjchen qjchen   96 Dec  4 01:00 log2014.log</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  916389 Jun 16  2018 1-12030Q21929 (copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  916389 Jun 16  2018 1-12030Q21929.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  598507 Apr 12  2018 18003 (copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  598507 Apr 12  2018 18003.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  266543 Apr 12  2018 18004.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  283025 Apr 12  2018 18006 (another copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  283025 Apr 12  2018 18006 (copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  283025 Apr 12  2018 18006.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  578677 Apr 12  2018 18008 (copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  578677 Apr 12  2018 18008.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  425357 Apr 12  2018 18012.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  884771 Apr 12  2018 18028.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  358206 Apr 14  2018 18052 (copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  358206 Apr 14  2018 18052.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen 1268524 Apr 14  2018 180740.png</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  642910 Apr 14  2018 18074 (copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  642910 Apr 14  2018 18074.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  748579 Apr 14  2018 18092.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  328242 Jun 16  2018 582e754c7cede.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  210580 Jun 16  2018 829023 (another copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  210580 Jun 16  2018 829023 (copy).jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen  210580 Jun 16  2018 829023.jpg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen    8079 Jun 16  2018 images (copy).jpeg</span><br><span class="line">-rwxrw-rw- 1 qjchen qjchen    8079 Jun 16  2018 images.jpeg</span><br><span class="line">qjchen@ubuntu:~/Desktop/shell_code$ ls -l * |grep "^-"| wc -l</span><br><span class="line">25</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">qjchen@ubuntu:~/Desktop/shell_code$ ls -l |grep "^d"</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:25 log</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 20:11 pictures</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:25 script</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:25 soft</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:26 src</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:26 web</span><br><span class="line">qjchen@ubuntu:~/Desktop/shell_code$ ls -l |grep "^d" |wc -l</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+<p><strong>例七: 在ls中列出文件的绝对路径</strong></p>
+<p><strong>命令</strong>：ls | sed “s:^:<code>pwd</code>/:”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">qjchen@ubuntu:~/Desktop/shell_code$ ls | sed "s:^:`pwd`/:"</span><br><span class="line">/home/qjchen/Desktop/shell_code/log</span><br><span class="line">/home/qjchen/Desktop/shell_code/log2014.log</span><br><span class="line">/home/qjchen/Desktop/shell_code/pictures</span><br><span class="line">/home/qjchen/Desktop/shell_code/script</span><br><span class="line">/home/qjchen/Desktop/shell_code/soft</span><br><span class="line">/home/qjchen/Desktop/shell_code/src</span><br><span class="line">/home/qjchen/Desktop/shell_code/web</span><br></pre></td></tr></table></figure>
+<p>s:^:pwd/: s为替换指令 将开始符替换成pwd</p>
+<p><strong>例八：列出当前目录下的所有文件（包括隐藏文件）的绝对路径， 对目录不做递归</strong></p>
+<p><strong>命令</strong>：find $PWD -maxdepth 1 | xargs ls -ld</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">qjchen@ubuntu:~/Desktop/shell_code$ find $PWD -maxdepth 1 | xargs ls -ld</span><br><span class="line">drwxrwxr-x 8 qjchen qjchen 4096 Dec  6 22:26 /home/qjchen/Desktop/shell_code</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:25 /home/qjchen/Desktop/shell_code/log</span><br><span class="line">-rw-rw-r-- 1 qjchen qjchen   96 Dec  4 01:00 /home/qjchen/Desktop/shell_code/log2014.log</span><br><span class="line">drwxr-xr-x 2 qjchen qjchen 4096 Nov  8 20:11 /home/qjchen/Desktop/shell_code/pictures</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:25 /home/qjchen/Desktop/shell_code/script</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:25 /home/qjchen/Desktop/shell_code/soft</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:26 /home/qjchen/Desktop/shell_code/src</span><br><span class="line">drwxrwxr-x 2 qjchen qjchen 4096 Dec  6 22:26 /home/qjchen/Desktop/shell_code/web</span><br></pre></td></tr></table></figure>
+<h3 id="二、cd命令"><a href="#二、cd命令" class="headerlink" title="二、cd命令"></a>二、cd命令</h3><p><strong>1.</strong> <strong>命令格式：</strong></p>
+<p>cd  [目录名]</p>
+<p><strong>2.</strong> <strong>命令功能：</strong></p>
+<p>切换当前目录至dirName</p>
+<p><strong>3. 常用范例</strong></p>
+<p><strong>返回进入此目录之前所在的目录</strong>：cd -</p>
+<h3 id="三、pwd命令"><a href="#三、pwd命令" class="headerlink" title="三、pwd命令"></a>三、pwd命令</h3><p><strong>1.</strong> <strong>命令格式：</strong></p>
+<p>pwd [选项]</p>
+<p><strong>2．命令功能：</strong></p>
+<p>查看”当前工作目录“的完整路径</p>
+<h3 id="四、mkdir命令"><a href="#四、mkdir命令" class="headerlink" title="四、mkdir命令"></a>四、mkdir命令</h3><p><strong>1．命令格式：</strong></p>
+<p>mkdir [选项] 目录…</p>
+<p><strong>2．命令功能：</strong></p>
+<p>通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。</p>
+<p>要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。</p>
+<p><strong>3. 常用范例</strong></p>
+<p><strong>例一：</strong>创建权限为777的目录 </p>
+<p>命令：mkdir -m 777 test</p>
+<p><strong>例二：</strong>创建新目录都显示信息</p>
+<p>命令：mkdir -v test4</p>
+<h3 id="五、rm命令"><a href="#五、rm命令" class="headerlink" title="五、rm命令"></a>五、rm命令</h3><p><strong>1．命令格式：</strong></p>
+<p>rm [选项] 文件… </p>
+<p><strong>2．命令功能：</strong></p>
+<p>删除一个目录中的一个或多个文件或目录，如果没有使用- r选项，则rm不会删除目录。如果使用 rm 来删除文件，通常仍可以将该文件恢复原状。</p>
+<p><strong>3．命令参数：</strong></p>
+<p>  -f, —force  忽略不存在的文件，从不给出提示。</p>
+<p>  -i, —interactive 进行交互式删除</p>
+<p>  -r, -R, —recursive  指示rm将参数中列出的全部目录和子目录均递归地删除。</p>
+<p>  -v, —verbose  详细显示进行的步骤</p>
+<p>​    —help   显示此帮助信息并退出</p>
+<p>​    —version 输出版本信息并退出</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/30/院毕业典礼发言稿/" rel="next" title="院毕业典礼发言稿">
+                <i class="fa fa-chevron-left"></i> 院毕业典礼发言稿
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Qjchen" />
+            
+              <p class="site-author-name" itemprop="name">Qjchen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/cqj8660" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:cqj8660@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://angericky.github.io/" title="angericky" target="_blank">angericky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.xinyujiang.cn/" title="Xinyujiang" target="_blank">Xinyujiang</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jxtxzzw.com/" title="jxtxzzw" target="_blank">jxtxzzw</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+<div id="music163player"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31152381&auto=0&height=66"></iframe></div>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#每天五个linux命令-1-ls"><span class="nav-number">1.</span> <span class="nav-text">每天五个linux命令(1): ls</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、ls命令"><span class="nav-number">1.1.</span> <span class="nav-text">一、ls命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、cd命令"><span class="nav-number">1.2.</span> <span class="nav-text">二、cd命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、pwd命令"><span class="nav-number">1.3.</span> <span class="nav-text">三、pwd命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、mkdir命令"><span class="nav-number">1.4.</span> <span class="nav-text">四、mkdir命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、rm命令"><span class="nav-number">1.5.</span> <span class="nav-text">五、rm命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qjchen</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">68.6k</span>
+  
+</div>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+        
+ 
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'pnyRB6klaBEl3QimTwbwCUgy-gzGzoHsz',
+        appKey: 'jsFkGcKxPQVynQUvdrLyz7u4',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
