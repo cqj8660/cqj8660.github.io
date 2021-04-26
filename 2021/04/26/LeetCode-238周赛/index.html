@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1838. 最高频元素的频数元素频数是该元素在一个数组中出现的次数。 给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。 执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。 样例： 1234输入：nums = [1,2,4], k = 5输出：3解释：对第一个元素执行 3 次递增操作，对第二个元素执 2 次">
+<meta name="description" content="1838. 最高频元素的频数元素频数是该元素在一个数组中出现的次数。 给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。 执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。">
 <meta name="keywords" content="二分,滑动窗口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 238周赛">
 <meta property="og:url" content="http://yoursite.com/2021/04/26/LeetCode-238周赛/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="1838. 最高频元素的频数元素频数是该元素在一个数组中出现的次数。 给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。 执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。 样例： 1234输入：nums = [1,2,4], k = 5输出：3解释：对第一个元素执行 3 次递增操作，对第二个元素执 2 次">
+<meta property="og:description" content="1838. 最高频元素的频数元素频数是该元素在一个数组中出现的次数。 给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。 执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-26T03:18:22.128Z">
+<meta property="og:updated_time" content="2021-04-26T03:19:27.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 238周赛">
-<meta name="twitter:description" content="1838. 最高频元素的频数元素频数是该元素在一个数组中出现的次数。 给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。 执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。 样例： 1234输入：nums = [1,2,4], k = 5输出：3解释：对第一个元素执行 3 次递增操作，对第二个元素执 2 次">
+<meta name="twitter:description" content="1838. 最高频元素的频数元素频数是该元素在一个数组中出现的次数。 给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。 执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。">
 
 
 
@@ -395,8 +395,7 @@
       
         <h4 id="1838-最高频元素的频数"><a href="#1838-最高频元素的频数" class="headerlink" title="1838. 最高频元素的频数"></a><a href="https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element/" target="_blank" rel="noopener">1838. 最高频元素的频数</a></h4><p>元素<strong>频数</strong>是该元素在一个数组中出现的次数。</p>
 <p>给你一个整数数组 nums 和一个整数 k 。在一步操作中，你可以选择 nums 的一个下标，并将该下标对应元素的值增加 1 。</p>
-<p>执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。</p>
-<p>样例：</p>
+<p>执行最多 k 次操作后，返回数组中最高频元素的 最大可能频数 。<br><a id="more"></a><br>样例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,4], k = 5</span><br><span class="line">输出：3</span><br><span class="line">解释：对第一个元素执行 3 次递增操作，对第二个元素执 2 次递增操作，此时 nums = [4,4,4] 。</span><br><span class="line">4 是数组中最高频元素，频数是 3 。</span><br></pre></td></tr></table></figure>
 <p>比赛的时候这道题目卡了一个小时，人没了</p>
 <p>首先考虑排序，最终的答案一定是连续的一段区间，所有的数都等于最右边的数</p>
