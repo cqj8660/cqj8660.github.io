@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="二分," />
+  <meta name="keywords" content="动态规划," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/ 题面给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数 。">
-<meta name="keywords" content="二分">
+<meta name="description" content="链接： https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/description/ dp思路123456789101112131415161718192021int maxProfit(int k, vector&amp;lt;int&amp;gt;&amp;amp; prices) &amp;#123;    int siz = prices">
+<meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode4 寻找两个正序数组的中位数">
-<meta property="og:url" content="http://yoursite.com/2021/07/27/LeetCode4-寻找两个正序数组的中位数/index.html">
+<meta property="og:title" content="LeetCode188 买卖股票的最佳时机IV">
+<meta property="og:url" content="http://yoursite.com/2021/08/11/LeetCode188-买卖股票的最佳时机IV/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/ 题面给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数 。">
+<meta property="og:description" content="链接： https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/description/ dp思路123456789101112131415161718192021int maxProfit(int k, vector&amp;lt;int&amp;gt;&amp;amp; prices) &amp;#123;    int siz = prices">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-07-27T03:13:42.130Z">
+<meta property="og:updated_time" content="2021-08-11T08:55:04.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode4 寻找两个正序数组的中位数">
-<meta name="twitter:description" content="链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays/ 题面给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数 。">
+<meta name="twitter:title" content="LeetCode188 买卖股票的最佳时机IV">
+<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/description/ dp思路123456789101112131415161718192021int maxProfit(int k, vector&amp;lt;int&amp;gt;&amp;amp; prices) &amp;#123;    int siz = prices">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/07/27/LeetCode4-寻找两个正序数组的中位数/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/08/11/LeetCode188-买卖股票的最佳时机IV/"/>
 
 
 
 
 
-  <title>LeetCode4 寻找两个正序数组的中位数 | Qjchen's Blog</title>
+  <title>LeetCode188 买卖股票的最佳时机IV | Qjchen's Blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/27/LeetCode4-寻找两个正序数组的中位数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/11/LeetCode188-买卖股票的最佳时机IV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qjchen">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode4 寻找两个正序数组的中位数</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode188 买卖股票的最佳时机IV</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-27T10:38:14+08:00">
-                2021-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-11T15:15:18+08:00">
+                2021-08-11
               </time>
             
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/07/27/LeetCode4-寻找两个正序数组的中位数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2021/07/27/LeetCode4-寻找两个正序数组的中位数/" itemprop="commentCount"></span>
+                <a href="/2021/08/11/LeetCode188-买卖股票的最佳时机IV/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/08/11/LeetCode188-买卖股票的最佳时机IV/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  745
+                  392
                 </span>
               
 
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -393,16 +393,10 @@
       
 
       
-        <p><strong>链接</strong>：<a href="https://leetcode-cn.com/problems/median-of-two-sorted-arrays/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/median-of-two-sorted-arrays/</a></p>
-<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数 。<br><a id="more"></a></p>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>如果两个数组的长度为偶数，则需要找到第(m + n + 1) / 2小的元素，否则就是找(m + n) / 2和(m + n + 1) / 2个元素<br>要找到第 k (k&gt;1) 小的元素，那么就取 pivot1 = nums1[k/2-1] 和 pivot2 = nums2[k/2-1] 进行比较<br>nums1 中小于等于 pivot1 的元素有 nums1[0 .. k/2-2] 共计 k/2-1 个<br>nums2 中小于等于 pivot2 的元素有 nums2[0 .. k/2-2] 共计 k/2-1 个<br>取 pivot = min(pivot1, pivot2)，两个数组中小于等于 pivot 的元素共计不会超过 (k/2-1) + (k/2-1) &lt;= k-2 个<br>这样 pivot 本身最大也只能是第 k-1 小的元素<br>如果 pivot = pivot1，那么 nums1[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部排除，剩下的作为新的 nums1 数组<br>如果 pivot = pivot2，那么 nums2[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部排除，剩下的作为新的 nums2 数组<br>由于我们 “排除” 了一些元素（这些元素都比第 k 小的元素要小），因此需要修改 k 的值，减去删除的数的个数<br>此外还存在着一些边界情况需要处理：</p>
-<ol>
-<li>如果 nums1[k/2−1] 或者 nums2[k/2−1] 越界，那么我们可以选取对应数组中的最后一个元素。在这种情况下，我们必须根据排除数的个数减少 k 的值，而不能直接将 k 减去 k/2。</li>
-<li>如果一个数组为空，说明该数组中的所有元素都被排除，我们可以直接返回另一个数组中第 k 小的元素。</li>
-<li>如果 k=1，我们只要返回两个数组首元素的最小值即可。</li>
-</ol>
-<h3 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h3><p>当遇到一个比较复杂的问题时，需要想的是怎么进行转换<br>在实现的时候也要注意，怎么通过模块化的方式来简化实现</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> total = nums1.size() + nums2.size();</span><br><span class="line">        <span class="keyword">if</span> (total % <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> getKth(nums1, nums2, (total + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> v1 = getKth(nums1, nums2, total / <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> v2 = getKth(nums1, nums2, total / <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">return</span> (v1 + v2) / <span class="number">2.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getKth</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 找出两个数组归并后第k小的元素</span></span><br><span class="line">        <span class="keyword">int</span> m = nums1.size(), n = nums2.size();</span><br><span class="line">        <span class="keyword">int</span> l1 = <span class="number">0</span>, l2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1 == m) &#123;</span><br><span class="line">                <span class="keyword">return</span> nums2[l2 + k - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (l2 == n) &#123;</span><br><span class="line">                <span class="keyword">return</span> nums1[l1 + k - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> min(nums1[l1], nums2[l2]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> mid1 = min(l1 + k / <span class="number">2</span> - <span class="number">1</span>, m - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> mid2 = min(l2 + k / <span class="number">2</span> - <span class="number">1</span>, n - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> pv1 = nums1[mid1], pv2 = nums2[mid2];</span><br><span class="line">            <span class="keyword">if</span> (pv1 &lt;= pv2) &#123;</span><br><span class="line">                k -= mid1 - l1 + <span class="number">1</span>;</span><br><span class="line">                l1 = mid1 + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                k -= mid2 - l2 + <span class="number">1</span>;</span><br><span class="line">                l2 = mid2 + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/description/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/description/</a></p>
+<h3 id="dp思路"><a href="#dp思路" class="headerlink" title="dp思路"></a>dp思路</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> siz = prices.size();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&gt; dp(k + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(<span class="number">1</span> + siz, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(<span class="number">2</span>, <span class="number">-0x3f3f3f</span>)));</span><br><span class="line">    k = min(k, siz / <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// dp[i][j][0]表示i次交易第j天手中没有股票的最大利润　</span></span><br><span class="line">    <span class="comment">// dp[i][j][1]表示i次交易第j天手中有股票的最大利润</span></span><br><span class="line">    <span class="comment">// 以买入作为一次交易的开始</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= siz; i++) &#123;</span><br><span class="line">        dp[<span class="number">0</span>][i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= k; i++) &#123;</span><br><span class="line">        dp[i][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= siz; j++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i++) &#123;</span><br><span class="line">            dp[i][j][<span class="number">0</span>] = max(dp[i][j - <span class="number">1</span>][<span class="number">0</span>], dp[i][j - <span class="number">1</span>][<span class="number">1</span>] + prices[j - <span class="number">1</span>]);</span><br><span class="line">            dp[i][j][<span class="number">1</span>] = max(dp[i][j - <span class="number">1</span>][<span class="number">1</span>], dp[i - <span class="number">1</span>][j - <span class="number">1</span>][<span class="number">0</span>] - prices[j - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[k][siz][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h3><p>建立两个动态规划数组 buy 和 sell，对于每天的股票价格，buy[j] 表示在第 j 次买入时的最大收<br>益，sell[j] 表示在第 j 次卖出时的最大收益。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = prices.size();</span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k &gt;= len) &#123;</span><br><span class="line">            <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (prices[i] &gt; prices[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                    total += prices[i] - prices[i - <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> total;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; buy(k + <span class="number">1</span>, <span class="number">-0xffff</span>), sell(k + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= k; j++) &#123;</span><br><span class="line">                buy[j] = max(buy[j], sell[j - <span class="number">1</span>] - prices[i]);</span><br><span class="line">                sell[j] = max(sell[j], buy[j] + prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell[k];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -419,7 +413,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/二分/" rel="tag"># 二分</a>
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
           
         </div>
       
@@ -432,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/07/16/LeetCode51-n-皇后/" rel="next" title="LeetCode51 n-皇后">
-                <i class="fa fa-chevron-left"></i> LeetCode51 n-皇后
+              <a href="/2021/08/03/LeetCode650-只有两个键的键盘/" rel="next" title="LeetCode650 只有两个键的键盘">
+                <i class="fa fa-chevron-left"></i> LeetCode650 只有两个键的键盘
               </a>
             
           </div>
@@ -441,10 +435,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/08/02/LeetCode474-一和零/" rel="prev" title="LeetCode474 一和零">
-                LeetCode474 一和零 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面"><span class="nav-number">1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#心得"><span class="nav-number">3.</span> <span class="nav-text">心得</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dp思路"><span class="nav-number">1.</span> <span class="nav-text">dp思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化"><span class="nav-number">2.</span> <span class="nav-text">简化</span></a></li></ol></div>
             
 
           </div>
