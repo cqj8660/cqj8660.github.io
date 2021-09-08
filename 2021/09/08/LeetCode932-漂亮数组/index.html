@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="动态规划," />
+  <meta name="keywords" content="动态规划,分治," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接：https://leetcode-cn.com/problems/edit-distance/description/ 题面给定两个字符串，已知你可以删除、替换和插入任意字符串的任意字符，求最少编辑几步可以将两个字符串变成相同。">
-<meta name="keywords" content="动态规划">
+<meta name="description" content="链接： https://leetcode-cn.com/problems/beautiful-array/description/ 题面对于某些固定的N，如果数组A是整数1, 2, ..., N组成的排列，使得：对于每个i &amp;lt; j，都不存在k满足i &amp;lt; k &amp;lt; j使得A[k] * 2 = A[i] + A[j]。">
+<meta name="keywords" content="动态规划,分治">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode72 编辑距离">
-<meta property="og:url" content="http://yoursite.com/2021/08/03/LeetCode72-编辑距离/index.html">
+<meta property="og:title" content="LeetCode932 漂亮数组">
+<meta property="og:url" content="http://yoursite.com/2021/09/08/LeetCode932-漂亮数组/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接：https://leetcode-cn.com/problems/edit-distance/description/ 题面给定两个字符串，已知你可以删除、替换和插入任意字符串的任意字符，求最少编辑几步可以将两个字符串变成相同。">
+<meta property="og:description" content="链接： https://leetcode-cn.com/problems/beautiful-array/description/ 题面对于某些固定的N，如果数组A是整数1, 2, ..., N组成的排列，使得：对于每个i &amp;lt; j，都不存在k满足i &amp;lt; k &amp;lt; j使得A[k] * 2 = A[i] + A[j]。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-08-04T02:33:46.401Z">
+<meta property="og:updated_time" content="2021-09-08T08:15:14.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode72 编辑距离">
-<meta name="twitter:description" content="链接：https://leetcode-cn.com/problems/edit-distance/description/ 题面给定两个字符串，已知你可以删除、替换和插入任意字符串的任意字符，求最少编辑几步可以将两个字符串变成相同。">
+<meta name="twitter:title" content="LeetCode932 漂亮数组">
+<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/beautiful-array/description/ 题面对于某些固定的N，如果数组A是整数1, 2, ..., N组成的排列，使得：对于每个i &amp;lt; j，都不存在k满足i &amp;lt; k &amp;lt; j使得A[k] * 2 = A[i] + A[j]。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/08/03/LeetCode72-编辑距离/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/09/08/LeetCode932-漂亮数组/"/>
 
 
 
 
 
-  <title>LeetCode72 编辑距离 | Qjchen's Blog</title>
+  <title>LeetCode932 漂亮数组 | Qjchen's Blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/03/LeetCode72-编辑距离/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/08/LeetCode932-漂亮数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qjchen">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode72 编辑距离</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode932 漂亮数组</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-03T11:09:54+08:00">
-                2021-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-08T16:02:48+08:00">
+                2021-09-08
               </time>
             
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/08/03/LeetCode72-编辑距离/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2021/08/03/LeetCode72-编辑距离/" itemprop="commentCount"></span>
+                <a href="/2021/09/08/LeetCode932-漂亮数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/09/08/LeetCode932-漂亮数组/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  268
+                  506
                 </span>
               
 
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -393,10 +393,13 @@
       
 
       
-        <p><strong>链接</strong>：<a href="https://leetcode-cn.com/problems/edit-distance/description/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/edit-distance/description/</a></p>
-<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给定两个字符串，已知你可以删除、替换和插入任意字符串的任意字符，求最少编辑几步可以将两个字符串变成相同。<br><a id="more"></a></p>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>比较经典的动态规划题目了<br>dp[i][j] 可以从 dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]转移而来<br>取决于第i个字符和第j个字符是否相等<br>记录一个自己的写法</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(<span class="built_in">string</span> word1, <span class="built_in">string</span> word2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = word1.size(),  n = word2.size();</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span> || n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> max(m, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(m + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n + <span class="number">1</span>));</span><br><span class="line">        <span class="comment">// dp[i][j]表示s1前i个字符, s2前j个字符的最少编辑距离</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>) &#123;</span><br><span class="line">                    dp[i][j] = i;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">int</span> step = (word1[i - <span class="number">1</span>] != word2[j - <span class="number">1</span>]);</span><br><span class="line">                    dp[i][j] = min(min(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]) + <span class="number">1</span>, dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + step);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/beautiful-array/description/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/beautiful-array/description/</a></p>
+<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>对于某些固定的<code>N</code>，如果数组<code>A</code>是整数<code>1, 2, ..., N</code>组成的排列，使得：对于每个<code>i &lt; j</code>，都不存在<code>k</code>满足<code>i &lt; k &lt; j</code>使得<code>A[k] * 2 = A[i] + A[j]</code>。<br><a id="more"></a></p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>这道题还是有点难做的，主要用到的是分治的思想<br>但是如何进行分治求解需要用到一些trick以及奇偶数的一些性质<br>重点：<br>如果<code>·{ X, Y, Z }</code>是一个漂亮数组，则<code>{ k * X + b, k * Y + b, k * Z + b }</code>也一定是漂亮数组<br>奇数 + 偶数 = 奇数 一定成立</p>
+<p>所以可以将数组分为left和right两部分进行处理<br>如果left部分为漂亮数组且都为奇数，right部分为漂亮数组且都为偶数，则合并后也一定是漂亮数组<br>因为奇数+偶数一定等于奇数</p>
+<p>所以初试所有数组均为1，然后分治处理左半边和右半边的数组<br>处理完后将left数组所有数*2-1，right数组所有数乘以2，就得到了一个扩充后的漂亮数组<br>还是挺巧妙的<br>有两种写法，差异不大，个人更喜欢直接分治的做法，当然也可以加记忆化处理</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="纯粹分治"><a href="#纯粹分治" class="headerlink" title="纯粹分治"></a>纯粹分治</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; beautifulArray(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans(n, <span class="number">1</span>);</span><br><span class="line">        part(<span class="number">0</span>, n - <span class="number">1</span>, ans);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">part</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; ans)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (r &lt;= l) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        part(l, mid, ans);</span><br><span class="line">        part(mid + <span class="number">1</span>, r, ans);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = l ; i &lt;= mid; i++) &#123;</span><br><span class="line">            ans[i] = ans[i] * <span class="number">2</span> - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = mid + <span class="number">1</span>; i &lt;= r; i++) &#123;</span><br><span class="line">            ans[i] = ans[i] * <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="记忆化"><a href="#记忆化" class="headerlink" title="记忆化"></a>记忆化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; mp;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; beautifulArray(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (mp.find(n) != mp.end()) &#123;</span><br><span class="line">            <span class="keyword">return</span> mp[n];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i: beautifulArray((n + <span class="number">1</span>) / <span class="number">2</span>)) &#123;</span><br><span class="line">            ret.push_back(i * <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i: beautifulArray(n / <span class="number">2</span>)) &#123;</span><br><span class="line">            ret.push_back(i * <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        mp[n] = ret;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -415,6 +418,8 @@
           
             <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
           
+            <a href="/tags/分治/" rel="tag"># 分治</a>
+          
         </div>
       
 
@@ -426,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/08/02/LeetCode474-一和零/" rel="next" title="LeetCode474 一和零">
-                <i class="fa fa-chevron-left"></i> LeetCode474 一和零
+              <a href="/2021/09/08/LeetCode241-为运算表达式设计优先级/" rel="next" title="LeetCode241 为运算表达式设计优先级">
+                <i class="fa fa-chevron-left"></i> LeetCode241 为运算表达式设计优先级
               </a>
             
           </div>
@@ -435,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/08/03/LeetCode650-只有两个键的键盘/" rel="prev" title="LeetCode650 只有两个键的键盘">
-                LeetCode650 只有两个键的键盘 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -614,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面"><span class="nav-number">1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题面"><span class="nav-number">1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#纯粹分治"><span class="nav-number">3.1.</span> <span class="nav-text">纯粹分治</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#记忆化"><span class="nav-number">3.2.</span> <span class="nav-text">记忆化</span></a></li></ol></li></ol></div>
             
 
           </div>
