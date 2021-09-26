@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字 解法这里要用到一个水库采样算法水库算法：遍历这个链表，在遍历到第$i$个节点时，有 $1 / i$的概率选择这个节点覆盖掉之前的节点选择。 代码12345678910111213141">
+<meta name="description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字">
 <meta name="keywords" content="随机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode382 链表随机节点">
 <meta property="og:url" content="http://yoursite.com/2021/09/13/LeetCode382-链表随机节点/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字 解法这里要用到一个水库采样算法水库算法：遍历这个链表，在遍历到第$i$个节点时，有 $1 / i$的概率选择这个节点覆盖掉之前的节点选择。 代码12345678910111213141">
+<meta property="og:description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-09-13T04:48:44.618Z">
+<meta property="og:updated_time" content="2021-09-26T05:33:12.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode382 链表随机节点">
-<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字 解法这里要用到一个水库采样算法水库算法：遍历这个链表，在遍历到第$i$个节点时，有 $1 / i$的概率选择这个节点覆盖掉之前的节点选择。 代码12345678910111213141">
+<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字">
 
 
 
@@ -394,7 +394,7 @@
 
       
         <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/linked-list-random-node/description/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/linked-list-random-node/description/</a></p>
-<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字</p>
+<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给定一个单向链表，要求设计一个算法，可以随机取得其中的一个数字<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>这里要用到一个水库采样算法<br>水库算法：遍历这个链表，在遍历到第$i$个节点时，有 $1 / i$的概率选择这个节点覆盖掉之前的节点选择。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/** @param head The linked list's head.</span></span><br><span class="line"><span class="comment">        Note that the head is guaranteed to be not null, so it contains at least one node. */</span></span><br><span class="line">    ListNode * Head;</span><br><span class="line">    Solution(ListNode* head):Head(head) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns a random node's value. */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getRandom</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = Head -&gt; val;</span><br><span class="line">        ListNode* node = Head -&gt; next;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span>(node != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> flag = rand() % index == <span class="number">0</span>; </span><br><span class="line">            <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">                ans = node -&gt; val;</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">            node = node -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
