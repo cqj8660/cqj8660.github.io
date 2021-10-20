@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给你一个长度为 n 的整数数组 nums，其中 n &amp;gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。">
+<meta name="description" content="链接： https://leetcode-cn.com/problems/product-of-array-except-self/ 题面给你一个长度为 n 的整数数组 nums，其中 n &amp;gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。">
 <meta name="keywords" content="前缀和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode238 除自身以外数组的乘积">
 <meta property="og:url" content="http://yoursite.com/2021/09/17/LeetCode238-除自身以外数组的乘积/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给你一个长度为 n 的整数数组 nums，其中 n &amp;gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。">
+<meta property="og:description" content="链接： https://leetcode-cn.com/problems/product-of-array-except-self/ 题面给你一个长度为 n 的整数数组 nums，其中 n &amp;gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-09-26T05:33:08.922Z">
+<meta property="og:updated_time" content="2021-10-18T02:37:53.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode238 除自身以外数组的乘积">
-<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/linked-list-random-node/description/ 题面给你一个长度为 n 的整数数组 nums，其中 n &amp;gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。">
+<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/product-of-array-except-self/ 题面给你一个长度为 n 的整数数组 nums，其中 n &amp;gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。">
 
 
 
@@ -393,7 +393,7 @@
       
 
       
-        <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/linked-list-random-node/description/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/linked-list-random-node/description/</a></p>
+        <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/product-of-array-except-self/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/product-of-array-except-self/</a></p>
 <h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给你一个长度为 n 的整数数组 nums，其中 n &gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>由于题目要求不使用除法<br>其实就可以考虑前缀积的做法了<br>正向扫一遍反向扫一遍<br>然后两端乘起来就好了</p>
 <p>但是要求不使用多余的空间，所以这里用到一个trick<br>用left和right表示从左向右的积和反向的积<br>然后每次左边的时候就正常乘 乘右边的时候等右边算完了再乘<br>也就是等右边的乘积算出来了再去更新output[i]的值</p>
@@ -525,7 +525,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-count">100</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -547,7 +547,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -651,7 +651,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">86.9k</span>
+    <span title="Site words total count">87.6k</span>
   
 </div>
 
