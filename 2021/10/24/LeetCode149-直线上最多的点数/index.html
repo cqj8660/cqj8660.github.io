@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="链接： https://leetcode-cn.com/problems/max-points-on-a-line/ 题面给定一些二维坐标中的点，求同一条线上最多由多少点。 解法暴力的话三重循环 也可以通过但是效率不高一个比较好的解法使用map存每两个点的斜率 然后计算斜率相同的个数对于斜率不存在的情况要单独拿出来处理不是很难的一道题目 代码1234567891011121314151617181">
+<meta name="description" content="链接： https://leetcode-cn.com/problems/max-points-on-a-line/ 题面给定一些二维坐标中的点，求同一条线上最多由多少点。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode149 直线上最多的点数">
 <meta property="og:url" content="http://yoursite.com/2021/10/24/LeetCode149-直线上最多的点数/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接： https://leetcode-cn.com/problems/max-points-on-a-line/ 题面给定一些二维坐标中的点，求同一条线上最多由多少点。 解法暴力的话三重循环 也可以通过但是效率不高一个比较好的解法使用map存每两个点的斜率 然后计算斜率相同的个数对于斜率不存在的情况要单独拿出来处理不是很难的一道题目 代码1234567891011121314151617181">
+<meta property="og:description" content="链接： https://leetcode-cn.com/problems/max-points-on-a-line/ 题面给定一些二维坐标中的点，求同一条线上最多由多少点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-10-24T06:33:02.175Z">
+<meta property="og:updated_time" content="2021-10-24T09:02:34.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode149 直线上最多的点数">
-<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/max-points-on-a-line/ 题面给定一些二维坐标中的点，求同一条线上最多由多少点。 解法暴力的话三重循环 也可以通过但是效率不高一个比较好的解法使用map存每两个点的斜率 然后计算斜率相同的个数对于斜率不存在的情况要单独拿出来处理不是很难的一道题目 代码1234567891011121314151617181">
+<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/max-points-on-a-line/ 题面给定一些二维坐标中的点，求同一条线上最多由多少点。">
 
 
 
@@ -393,7 +393,7 @@
 
       
         <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/max-points-on-a-line/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/max-points-on-a-line/</a></p>
-<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给定一些二维坐标中的点，求同一条线上最多由多少点。</p>
+<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给定一些二维坐标中的点，求同一条线上最多由多少点。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>暴力的话三重循环 也可以通过但是效率不高<br>一个比较好的解法使用map存每两个点的斜率 然后计算斜率相同的个数<br>对于斜率不存在的情况要单独拿出来处理<br>不是很难的一道题目</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = points.size(), ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">double</span>, <span class="keyword">int</span>&gt; k;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> same_x = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; p1(points[i]), p2(points[j]);</span><br><span class="line">                <span class="keyword">if</span> (p1[<span class="number">0</span>] == p2[<span class="number">0</span>]) &#123;</span><br><span class="line">                    same_x++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    k[(<span class="keyword">double</span>)(p2[<span class="number">1</span>] - p1[<span class="number">1</span>]) / (p2[<span class="number">0</span>] - p1[<span class="number">0</span>])]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = max(ans, same_x + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> item: k) &#123;</span><br><span class="line">                ans = max(ans, <span class="number">1</span> + item.second);</span><br><span class="line">            &#125;</span><br><span class="line">            k.clear();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       

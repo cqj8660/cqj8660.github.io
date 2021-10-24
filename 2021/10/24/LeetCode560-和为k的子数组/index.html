@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接: https://leetcode-cn.com/problems/subarray-sum-equals-k/ 题意给定一个数组，寻找和为 k 的连续区间个数。 解法本来以为是个简单题 结果卡了快一个小时不过好歹还是学到点东西的 对前缀和理解更深了一点有一些收获本来以为前缀和是有序的，然后可以二分找到差值结果调了很久发现行不通 因为前缀和并不是有序的 甚至还有可能有多个相同的值白白浪费两个">
+<meta name="description" content="链接: https://leetcode-cn.com/problems/subarray-sum-equals-k/ 题意给定一个数组，寻找和为 k 的连续区间个数。">
 <meta name="keywords" content="前缀和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode560 和为k的子数组">
 <meta property="og:url" content="http://yoursite.com/2021/10/24/LeetCode560-和为k的子数组/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接: https://leetcode-cn.com/problems/subarray-sum-equals-k/ 题意给定一个数组，寻找和为 k 的连续区间个数。 解法本来以为是个简单题 结果卡了快一个小时不过好歹还是学到点东西的 对前缀和理解更深了一点有一些收获本来以为前缀和是有序的，然后可以二分找到差值结果调了很久发现行不通 因为前缀和并不是有序的 甚至还有可能有多个相同的值白白浪费两个">
+<meta property="og:description" content="链接: https://leetcode-cn.com/problems/subarray-sum-equals-k/ 题意给定一个数组，寻找和为 k 的连续区间个数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-10-24T08:56:26.639Z">
+<meta property="og:updated_time" content="2021-10-24T09:02:15.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode560 和为k的子数组">
-<meta name="twitter:description" content="链接: https://leetcode-cn.com/problems/subarray-sum-equals-k/ 题意给定一个数组，寻找和为 k 的连续区间个数。 解法本来以为是个简单题 结果卡了快一个小时不过好歹还是学到点东西的 对前缀和理解更深了一点有一些收获本来以为前缀和是有序的，然后可以二分找到差值结果调了很久发现行不通 因为前缀和并不是有序的 甚至还有可能有多个相同的值白白浪费两个">
+<meta name="twitter:description" content="链接: https://leetcode-cn.com/problems/subarray-sum-equals-k/ 题意给定一个数组，寻找和为 k 的连续区间个数。">
 
 
 
@@ -394,7 +394,7 @@
 
       
         <p><strong>链接</strong>: <a href="https://leetcode-cn.com/problems/subarray-sum-equals-k//" target="_blank" rel="noopener">https://leetcode-cn.com/problems/subarray-sum-equals-k/</a></p>
-<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一个数组，寻找和为 k 的连续区间个数。</p>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一个数组，寻找和为 k 的连续区间个数。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>本来以为是个简单题 结果卡了快一个小时<br>不过好歹还是学到点东西的 对前缀和理解更深了一点<br>有一些收获<br>本来以为前缀和是有序的，然后可以二分找到差值<br>结果调了很久发现行不通 因为前缀和并不是有序的 甚至还有可能有多个相同的值<br>白白浪费两个小时<br>暴力二重循环会在最后一个样例超时</p>
 <p>然后考虑用map存储所有的前缀和和它们的下标，由于同一个值可能对应多个索引<br>所以需要用multimap存储 学习了一下multimap的用法<br>multimap找键值的时候不能用[]来进行访问 需要用equal_range函数找出所有key-pair<br>返回值是一个iterator的pair分别表示找到的头尾 再进行访问<br>如果出现的target在当前下标前就加到结果中<br>这样可以通过 但是效率很低</p>
 <p>正确的方法是 不需要一下子存入所有的前缀和到map中<br>遍历的过程中 实时更新map键值 这样可以保证后面加进来的都是之前的前缀和<br>而不会出现后面的前缀和的情况</p>
