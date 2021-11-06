@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接： [https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/) 题意给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算 解法表达式计算属于经典的问题了我只">
+<meta name="description" content="链接： [https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/) 题意给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算">
 <meta name="keywords" content="栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode227 基本计算器II">
 <meta property="og:url" content="http://yoursite.com/2021/11/06/LeetCode227-基本计算器II/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接： [https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/) 题意给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算 解法表达式计算属于经典的问题了我只">
+<meta property="og:description" content="链接： [https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/) 题意给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-11-06T07:54:22.613Z">
+<meta property="og:updated_time" content="2021-11-06T08:29:29.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode227 基本计算器II">
-<meta name="twitter:description" content="链接： [https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/) 题意给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算 解法表达式计算属于经典的问题了我只">
+<meta name="twitter:description" content="链接： [https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/) 题意给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算">
 
 
 
@@ -394,7 +394,7 @@
 
       
         <p><strong>链接：</strong> [<a href="https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/]https://leetcode-cn.com/problems/basic-calculator-ii/</a>)</p>
-<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。<br>整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算</p>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。<br>整数除法仅保留整数部分。表达式仅包含加减乘除，且不涉及负数运算<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>表达式计算属于经典的问题了<br>我只能想到的是中缀表达式转后缀表达式，再进行计算<br>于是又去复习了一下中缀转后缀的做法，核心步骤如下：<br>利用两个栈S1，S2：其中S1存放操作符，S2存放操作数</p>
 <p>从左往右遍历中缀表达式，如果遇到数字，则放入S2中，如果遇到操作符，则放入S1中。在放操作符的时候有一定的规则，如果栈为空或栈顶元素为（，则直接压栈。如果是(，也直接压栈;如果栈顶元素为普通操作符，则比较优先级，如果待压栈的操作符比栈顶操作符优先级高，则直接压栈，否则将S1中的栈顶元素出栈，并压入S2中，再接着比较S1栈顶元素的优先级。如果遇到)，则依次弹出S1栈顶的运算符，并压入S2，直到遇到左括号为止，此时将这一对括号丢弃。最后将S1中剩余的运算符依次弹出并压入S2，逆序输出S2（从栈底到栈顶）便得到了后缀表达式。（注意：等号的优先级最低，因为要到最后才进行赋值操作）</p>
 <p>得到后缀表达式之后，计算就变得方便多了，遇到数字就压栈，遇到操作符的时候，pop出栈顶的两个元素，进行计算后将结果又压入栈中，这样一直下去，直到得到最终结果。</p>
