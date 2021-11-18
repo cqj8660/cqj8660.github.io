@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。 解法这道题有两种不同的解法，比较容易想到是用一个优先队列每次取出最小的数分别乘以2、3 和 5 再加入队列直到取到第 n 个 还有一种dp的解法，这里贴一个在题解">
+<meta name="description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
 <meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode264 丑数II">
 <meta property="og:url" content="http://yoursite.com/2021/11/01/LeetCode264-丑数II/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。 解法这道题有两种不同的解法，比较容易想到是用一个优先队列每次取出最小的数分别乘以2、3 和 5 再加入队列直到取到第 n 个 还有一种dp的解法，这里贴一个在题解">
+<meta property="og:description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-11-01T07:31:21.280Z">
+<meta property="og:updated_time" content="2021-11-18T12:22:49.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode264 丑数II">
-<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。 解法这道题有两种不同的解法，比较容易想到是用一个优先队列每次取出最小的数分别乘以2、3 和 5 再加入队列直到取到第 n 个 还有一种dp的解法，这里贴一个在题解">
+<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
 
 
 
@@ -394,7 +394,7 @@
 
       
         <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/find-the-duplicate-number/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-duplicate-number/</a></p>
-<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给你一个整数 n ，请你找出并返回第 n 个 丑数 。<br>丑数 就是只包含质因数 2、3 或 5 的正整数。</p>
+<h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给你一个整数 n ，请你找出并返回第 n 个 丑数 。<br>丑数 就是只包含质因数 2、3 或 5 的正整数。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>这道题有两种不同的解法，比较容易想到是用一个优先队列<br>每次取出最小的数分别乘以2、3 和 5 再加入队列<br>直到取到第 n 个</p>
 <p>还有一种dp的解法，这里贴一个在题解中看到的比较好的解释<br><code>例如 n = 10， primes = [2, 3, 5]。 打印出丑数列表：1, 2, 3, 4, 5, 6, 8, 9, 10, 12</code><br>首先一定要知道，后面的丑数一定由前面的丑数乘以2，或者乘以3，或者乘以5得来。例如，8,9,10,12一定是1, 2, 3, 4, 5, 6乘以2,3,5三个质数中的某一个得到。</p>
 <p>这样的话我们的解题思路就是：从第一个丑数开始，一个个数丑数，并确保数出来的丑数是递增的，直到数到第n个丑数，得到答案。那么问题就是如何递增地数丑数？</p>
@@ -529,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -551,7 +551,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -655,7 +655,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">91.6k</span>
+    <span title="Site words total count">92.6k</span>
   
 </div>
 
