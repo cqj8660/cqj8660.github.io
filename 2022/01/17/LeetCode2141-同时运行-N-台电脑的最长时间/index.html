@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="链接: https://leetcode-cn.com/problems/maximum-running-time-of-n-computers/ 题意你有 n 台电脑。给你整数 n 和一个下标从 0 开始的整数数组 batteries ，其中第 i 个电池可以让一台电脑 运行 batteries[i] 分钟。你想使用这些电池让 全部 n 台电脑 同时 运行。求可以让 n 台电脑同时运行的 最长">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-01-17T07:34:08.155Z">
+<meta property="og:updated_time" content="2022-01-18T06:24:39.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode2141 同时运行 N 台电脑的最长时间">
 <meta name="twitter:description" content="链接: https://leetcode-cn.com/problems/maximum-running-time-of-n-computers/ 题意你有 n 台电脑。给你整数 n 和一个下标从 0 开始的整数数组 batteries ，其中第 i 个电池可以让一台电脑 运行 batteries[i] 分钟。你想使用这些电池让 全部 n 台电脑 同时 运行。求可以让 n 台电脑同时运行的 最长">
@@ -394,7 +394,7 @@
 
       
         <p><strong>链接</strong>: <a href="https://leetcode-cn.com/problems/maximum-running-time-of-n-computers/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/maximum-running-time-of-n-computers/</a></p>
-<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>你有 n 台电脑。给你整数 n 和一个下标从 0 开始的整数数组 batteries ，其中第 i 个电池可以让一台电脑 运行 batteries[i] 分钟。你想使用这些电池让 全部 n 台电脑 同时 运行。<br>求可以让 n 台电脑同时运行的 最长 分钟数。</p>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>你有 n 台电脑。给你整数 n 和一个下标从 0 开始的整数数组 batteries ，其中第 i 个电池可以让一台电脑 运行 batteries[i] 分钟。你想使用这些电池让 全部 n 台电脑 同时 运行。<br>求可以让 n 台电脑同时运行的 最长 分钟数。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>二分答案</p>
 <p>由于答案具有单调性，所以可以通过二分答案的方法来找到最大可以维持的时间<br>所以问题就被转化成，给定时长x，现有的电池容量是否可以维持n台电脑运行<br>由于需要同时供电，所以电池容量超过x的电池最长只能使用x<br>因此每个电池的使用时间至多为min(x, batteries[i])，所有电池的容量的和为sum<br>只需要满足$ n * x \leq sum $ 就一定可以满足条件<br>简单证明如下：对于容量超过x的m块电池，只要一直供应一台电脑就可以<br>对于其他容量不超过x的电池，剩余n-m台电脑没供电，只需要任意选择电池，供给余下的电脑<br>是一定可以维持x的时长的</p>
 <p>郑重规定一下二分答案的写法，while(r - l &gt; 1)，每次l和r都取mid<br>最后l和r会差1，l就是答案</p>
