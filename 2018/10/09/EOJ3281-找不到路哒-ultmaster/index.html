@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="3281. 找不到路哒 ultmasterTime limit per test: 3.0 secondsMemory limit: 256 megabytes 题意中华大地上，人人都知道有一个叫做 ultmaster 的 dalao。这倒不是因为他在器乐领域、作曲领域、算法竞赛领域与机器学习领域都已经臻至化境，而是因为他实在是太萌了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-07-12T08:29:14.440Z">
+<meta property="og:updated_time" content="2022-02-11T02:43:25.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EOJ3281 找不到路哒 ultmaster">
 <meta name="twitter:description" content="3281. 找不到路哒 ultmasterTime limit per test: 3.0 secondsMemory limit: 256 megabytes 题意中华大地上，人人都知道有一个叫做 ultmaster 的 dalao。这倒不是因为他在器乐领域、作曲领域、算法竞赛领域与机器学习领域都已经臻至化境，而是因为他实在是太萌了。">
@@ -395,7 +395,7 @@
       
         <h4 id="3281-找不到路哒-ultmaster"><a href="#3281-找不到路哒-ultmaster" class="headerlink" title="3281. 找不到路哒 ultmaster"></a>3281. 找不到路哒 ultmaster</h4><p><strong>Time limit per test</strong>: 3.0 seconds<br><strong>Memory limit</strong>: 256 megabytes</p>
 <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>中华大地上，人人都知道有一个叫做 ultmaster 的 dalao。这倒不是因为他在器乐领域、作曲领域、算法竞赛领域与机器学习领域都已经臻至化境，而是因为他实在是太萌了。<br><a id="more"></a><br>他总是喜欢到世界各处探险，可是呢遗憾的是总有那么些地方不仅难走还危机丛生。</p>
-<p>这一次，他来到了一个 m 行 n 列的迷宫，迷宫中有的格子里有可以增加寿元的草药，有的空空如也，有的却有减少寿元的毒气（？？？）。增加寿元的草药当然要吃，减少寿元的毒气却也不得不吸。在进迷宫之前，ultmaster 拥有的寿元为 h。要保证不能有任何一个时刻寿元值小于 0 （不包括 0），不然 ultmaster 就会死在路上。</p>
+<p>这一次，他来到了一个 m 行 n 列的迷宫，迷宫中有的格子里有可以增加寿元的草药，有的空空如也，有的却有减少寿元的毒气。增加寿元的草药当然要吃，减少寿元的毒气却也不得不吸。在进迷宫之前，ultmaster 拥有的寿元为 h。要保证不能有任何一个时刻寿元值小于 0 （不包括 0），不然 ultmaster 就会死在路上。</p>
 <p>迷宫的入口在左上角，出口在右下角，由于 ultmaster 方位感惊人，他竟然能保证自己只往右或者往下走。</p>
 <p>那么问题来了，从迷宫出去之后，ultmaster 最多能剩多少寿元呢？</p>
 <h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>第一行三个整数 $m,n,h (1≤m,n≤1 000,1≤h≤105)$。<br>接下来的$m$行，每行$n$个整数，分别代表 ultmaster 在相应格子中将要改变的寿元（即这个整数大于 0 为上述的格子内有草药的情况，等于 0 为上述的格子内空空如也的情况，小于 0 为上述的格子内有毒气的情况），每个整数绝对值不超过 100，整数的绝对值表示对寿元产生的影响（即增加或减少的数目）。</p>

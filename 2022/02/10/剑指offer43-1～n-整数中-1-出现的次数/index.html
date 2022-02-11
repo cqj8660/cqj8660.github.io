@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="链接https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/ 题意输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-02-10T10:48:19.238Z">
+<meta property="og:updated_time" content="2022-02-11T02:44:20.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer43 1～n 整数中 1 出现的次数">
 <meta name="twitter:description" content="链接https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/ 题意输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。">
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  337
+                  346
                 </span>
               
 
@@ -395,7 +395,7 @@
       
         <h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p><a href="https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/</a></p>
 <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。<br>例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。<br><a id="more"></a></p>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>某位中 11 出现次数的计算方法：<br>根据当前位 curcur 值的不同，分为以下三种情况：<br>当 cur = 0 时： 此位 1 的出现次数只由高位 high 决定，计算公式为：high <em> digit<br>比如对于数字2304，可以取的是23 </em> 10 = 230（0010-2219 1固定不动）<br>当 cur = 1 时： 此位 1 的出现次数由高位 high 和低位 low 决定，计算公式为：high <em> digit + low + 1<br>比如对于数字2314，可以取的是23 </em> 10 + 4 + 1 = 235（0010-2314 1固定不动）<br>当 cur = others 时： 此位 1 的出现次数只由高位 high 决定，计算公式为：(high + 1) <em> digit<br>比如对于数字2334，可以取的是(23 + 1) </em> 10 = 240（0010-2319 1固定不动）</p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>某位中 11 出现次数的计算方法：<br>根据当前位 curcur 值的不同，分为以下三种情况：<br>当 cur = 0 时： 此位 1 的出现次数只由高位 high 决定，计算公式为：$high \times digit$<br>比如对于数字2304，可以取的是$23 \times 10 = 230$（0010-2219 1固定不动）<br>当 cur = 1 时： 此位 1 的出现次数由高位 high 和低位 low 决定，计算公式为：$high \times digit + low + 1$<br>比如对于数字2314，可以取的是$23 \times 10 + 4 + 1 = 235$（0010-2314 1固定不动）<br>当 cur = others 时： 此位 1 的出现次数只由高位 high 决定，计算公式为：$(high + 1) \times digit$<br>比如对于数字2334，可以取的是$(23 + 1) \times 10 = 240$（0010-2319 1固定不动）</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countDigitOne</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> high = n / <span class="number">10</span>, low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> digit = <span class="number">1</span>, cur = n % <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(high != <span class="number">0</span> || cur != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur == <span class="number">0</span>) &#123;</span><br><span class="line">                cnt += high * digit;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (cur == <span class="number">1</span>) &#123;</span><br><span class="line">                cnt += high * digit + low + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                cnt += (high + <span class="number">1</span>) * digit;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; cnt &lt;&lt; endl;</span></span><br><span class="line">            low += cur * digit;</span><br><span class="line">            cur = high % <span class="number">10</span>;</span><br><span class="line">            high /= <span class="number">10</span>;</span><br><span class="line">            digit *= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -860,6 +860,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
