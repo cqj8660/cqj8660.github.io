@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接： https://leetcode-cn.com/problems/maximum-and-sum-of-array/ 题面给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots &amp;gt;= n。总共有 numSlots 个篮子，编号为 1 到 numSlots。你需要把所有 n 个整数分到这些篮子中，且每个篮子至多有2个整数。一种分配方案的与">
+<meta name="description" content="链接： https://leetcode-cn.com/problems/maximum-and-sum-of-array/周赛第四题，比赛的时候直接放弃了，虽然发现数据范围很小，但是忘记状压dp了（太久没用了） 题面给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots &amp;gt;= n。总共有 numSlots 个篮子，编号为 1 到 numSlo">
 <meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode2172 数组的最大与和">
 <meta property="og:url" content="http://yoursite.com/2022/02/14/LeetCode2172-数组的最大与和/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接： https://leetcode-cn.com/problems/maximum-and-sum-of-array/ 题面给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots &amp;gt;= n。总共有 numSlots 个篮子，编号为 1 到 numSlots。你需要把所有 n 个整数分到这些篮子中，且每个篮子至多有2个整数。一种分配方案的与">
+<meta property="og:description" content="链接： https://leetcode-cn.com/problems/maximum-and-sum-of-array/周赛第四题，比赛的时候直接放弃了，虽然发现数据范围很小，但是忘记状压dp了（太久没用了） 题面给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots &amp;gt;= n。总共有 numSlots 个篮子，编号为 1 到 numSlo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-02-14T08:59:25.020Z">
+<meta property="og:updated_time" content="2022-02-17T07:18:11.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode2172 数组的最大与和">
-<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/maximum-and-sum-of-array/ 题面给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots &amp;gt;= n。总共有 numSlots 个篮子，编号为 1 到 numSlots。你需要把所有 n 个整数分到这些篮子中，且每个篮子至多有2个整数。一种分配方案的与">
+<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/maximum-and-sum-of-array/周赛第四题，比赛的时候直接放弃了，虽然发现数据范围很小，但是忘记状压dp了（太久没用了） 题面给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots &amp;gt;= n。总共有 numSlots 个篮子，编号为 1 到 numSlo">
 
 
 
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  447
+                  485
                 </span>
               
 
@@ -393,7 +393,7 @@
       
 
       
-        <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/maximum-and-sum-of-array/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/maximum-and-sum-of-array/</a></p>
+        <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/maximum-and-sum-of-array/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/maximum-and-sum-of-array/</a><br>周赛第四题，比赛的时候直接放弃了，虽然发现数据范围很小，但是忘记状压dp了（太久没用了）</p>
 <h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots &gt;= n。总共有 numSlots 个篮子，编号为 1 到 numSlots。<br>你需要把所有 n 个整数分到这些篮子中，且每个篮子至多有2个整数。一种分配方案的与和定义为每个数与它所在篮子编号的按位与运算结果之和。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>数据量很小，考虑状压dp，将状态表示为一个三进制数<br>定义dp[i][mask]为考虑 nums 中的前 i 个整数，且篮子的可用状态为 mask 时的数组的最大与和。<br>其中，maskmask是一个三进制数，举个例子， 三进制数1022从低位到高位依次为 2, 2, 0, 1，表示篮子 1 还可以放 2 个数，篮子 2 还可以放 2 个数，篮子 3 还可以放 0 个数，篮子 4 还可以放 1 个数。<br>令 M 为 $3 ^ {numSlots}$，dp[n][M - 1]为最后的答案<br>当要把 nums 的第 i 个数放到哪个篮子里。假设要放到第 k 个篮子，那么第 k 个篮子必须还有剩余的空位，此时有</p>
 <script type="math/tex; mode=display">f(i, mask)=max(f(i, mask), f(i - 1, mask - 3^{k-1})+(k \& nums[i]))</script><p>根据上述转移方程即可完成代码</p>
@@ -523,7 +523,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">147</span>
+                  <span class="site-state-item-count">148</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -649,7 +649,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">106.9k</span>
+    <span title="Site words total count">108.1k</span>
   
 </div>
 
