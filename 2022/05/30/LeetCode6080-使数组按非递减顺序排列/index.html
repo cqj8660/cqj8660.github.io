@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="链接: https://leetcode.cn/problems/steps-to-make-array-non-decreasing/ 题意给你一个下标从 0 开始的整数数组 nums 。在一步操作中，移除所有满足 nums[i - 1] &amp;gt; nums[i] 的 nums[i] ，其中 0 &amp;lt; i &amp;lt; nums.length 。重复执行步骤，直到 nums 变为 非递减 数组，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-05-30T03:00:48.937Z">
+<meta property="og:updated_time" content="2022-05-30T07:29:04.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode6080 使数组按非递减顺序排列">
 <meta name="twitter:description" content="链接: https://leetcode.cn/problems/steps-to-make-array-non-decreasing/ 题意给你一个下标从 0 开始的整数数组 nums 。在一步操作中，移除所有满足 nums[i - 1] &amp;gt; nums[i] 的 nums[i] ，其中 0 &amp;lt; i &amp;lt; nums.length 。重复执行步骤，直到 nums 变为 非递减 数组，">
@@ -394,7 +394,7 @@
 
       
         <p><strong>链接</strong>: <a href="https://leetcode.cn/problems/steps-to-make-array-non-decreasing/" target="_blank" rel="noopener">https://leetcode.cn/problems/steps-to-make-array-non-decreasing/</a></p>
-<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你一个下标从 0 开始的整数数组 nums 。在一步操作中，移除所有满足 nums[i - 1] &gt; nums[i] 的 nums[i] ，其中 0 &lt; i &lt; nums.length 。<br>重复执行步骤，直到 nums 变为 非递减 数组，返回所需执行的操作数。</p>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你一个下标从 0 开始的整数数组 nums 。在一步操作中，移除所有满足 nums[i - 1] &gt; nums[i] 的 nums[i] ，其中 0 &lt; i &lt; nums.length 。<br>重复执行步骤，直到 nums 变为 非递减 数组，返回所需执行的操作数。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>周赛第三题 卡了好久<br>比赛的时候想到了要用单调栈这一类的解法来写<br>但是终归是没有能够调出来<br>这是一道比较接近思维的题<br>要求删除次数，首先考虑的是统计每个数右边比当前数小的数字个数<br>但是这样的时间复杂度来到了N^2<br>考虑使用单调栈进行优化<br>元素 x 会被左边某个比他大的元素 y 给移除（如果存在的话）。<br>我们需要计算在移除 x 之前，移除了多少个比 y 小的元素，从而算出移除 x 的时刻（第几步操作）。<br>答案可以转换成所有元素被移除的时刻的最大值。<br>对于一个新的数字x，判断当前数是否比栈顶的数要小<br>如果是的话，那当前数一定在其被删除以后才删除<br>所以用上一个数的maxT来对其赋值<br>最后取到这所有栈中数的maxT<br>然后再判断一下当前栈的情况<br>由于维护了一个单调递减的栈，所以如果栈空，则说明当前数不用被删除<br>否则当前数需要被删 maxT加1 加入栈中<br>在这个过程中最大的maxT即为答案</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalSteps</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; vp;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i: nums) &#123;</span><br><span class="line">            <span class="keyword">int</span> maxT = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(vp.size() &amp;&amp; vp.back().first &lt;= i) &#123;</span><br><span class="line">                <span class="comment">//左边小于等于num的值都需要在num被删除之前删掉,此时maxT 为删掉左边这些小与等于num的数的最大时间</span></span><br><span class="line">                maxT = max(maxT, vp.back().second);</span><br><span class="line">                vp.pop_back();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (vp.size()) &#123;</span><br><span class="line">                 <span class="comment">//如果stack 不为空,所有还有左边还有比num值大的情况，表示num需要被删除，如果为空，说明num不用删除</span></span><br><span class="line">                maxT++;</span><br><span class="line">            &#125;</span><br><span class="line">            vp.push_back(&#123;i, maxT&#125;);</span><br><span class="line">            ans = max(ans, maxT);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
@@ -437,6 +437,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/05/30/LeetCode47-全排列II/" rel="prev" title="LeetCode47 全排列II">
+                LeetCode47 全排列II <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -520,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">171</span>
+                  <span class="site-state-item-count">172</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -646,7 +650,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">121.3k</span>
+    <span title="Site words total count">121.6k</span>
   
 </div>
 
