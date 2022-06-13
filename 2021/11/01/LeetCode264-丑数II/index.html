@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
+<meta name="description" content="链接： https://leetcode.cn/problems/ugly-number-ii/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
 <meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode264 丑数II">
 <meta property="og:url" content="http://yoursite.com/2021/11/01/LeetCode264-丑数II/index.html">
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
-<meta property="og:description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
+<meta property="og:description" content="链接： https://leetcode.cn/problems/ugly-number-ii/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-11-18T12:22:49.139Z">
+<meta property="og:updated_time" content="2022-06-13T06:28:46.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode264 丑数II">
-<meta name="twitter:description" content="链接： https://leetcode-cn.com/problems/find-the-duplicate-number/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
+<meta name="twitter:description" content="链接： https://leetcode.cn/problems/ugly-number-ii/ 题面给你一个整数 n ，请你找出并返回第 n 个 丑数 。丑数 就是只包含质因数 2、3 或 5 的正整数。">
 
 
 
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  922
+                  1.3k
                 </span>
               
 
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -393,7 +393,7 @@
       
 
       
-        <p><strong>链接：</strong> <a href="https://leetcode-cn.com/problems/find-the-duplicate-number/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-duplicate-number/</a></p>
+        <p><strong>链接：</strong> <a href="https://leetcode.cn/problems/ugly-number-ii/" target="_blank" rel="noopener">https://leetcode.cn/problems/ugly-number-ii/</a></p>
 <h3 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h3><p>给你一个整数 n ，请你找出并返回第 n 个 丑数 。<br>丑数 就是只包含质因数 2、3 或 5 的正整数。<br><a id="more"></a></p>
 <h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>这道题有两种不同的解法，比较容易想到是用一个优先队列<br>每次取出最小的数分别乘以2、3 和 5 再加入队列<br>直到取到第 n 个</p>
 <p>还有一种dp的解法，这里贴一个在题解中看到的比较好的解释<br><code>例如 n = 10， primes = [2, 3, 5]。 打印出丑数列表：1, 2, 3, 4, 5, 6, 8, 9, 10, 12</code><br>首先一定要知道，后面的丑数一定由前面的丑数乘以2，或者乘以3，或者乘以5得来。例如，8,9,10,12一定是1, 2, 3, 4, 5, 6乘以2,3,5三个质数中的某一个得到。</p>
@@ -402,6 +402,12 @@
 <p>这样就可以用三个指针，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pointer2, 指向1, 2, 3, 4, 5, 6中，还没使用乘2机会的丑数的位置。该指针的前一位已经使用完了乘以2的机会。</span><br><span class="line">pointer3, 指向1, 2, 3, 4, 5, 6中，还没使用乘3机会的丑数的位置。该指针的前一位已经使用完了乘以3的机会。</span><br><span class="line">pointer5, 指向1, 2, 3, 4, 5, 6中，还没使用乘5机会的丑数的位置。该指针的前一位已经使用完了乘以5的机会。</span><br></pre></td></tr></table></figure></p>
 <p>下一次寻找丑数时，则对这三个位置分别尝试使用一次乘2机会，乘3机会，乘5机会，看看哪个最小，最小的那个就是下一个丑数。最后，那个得到下一个丑数的指针位置加一，因为它对应的那次乘法使用完了。</p>
 <p>这里需要注意下去重的问题，如果某次寻找丑数，找到了下一个丑数10，则pointer2和pointer5都需要加一，因为5乘2等于10， 2乘5也等于10，这样可以确保10只被数一次。<br>很巧妙的解法，同时也降低了时间复杂度，在后续更复杂的找丑数问题中也可以进行推广</p>
+<p>题解中看到的解释：<br>官方题解里提到的三个指针p2，p3，p5，但是没有说明其含义，实际上pi的含义是<strong>有资格同i相乘的最小丑数的位置</strong>。这里资格指的是：如果一个丑数nums[pi]通过乘以i可以得到下一个丑数，那么这个丑数nums[pi]就永远失去了同i相乘的资格（没有必要再乘了），我们把pi++让nums[pi]指向下一个丑数即可。</p>
+<p>不懂的话举例说明：</p>
+<p>一开始，丑数只有{1}，1可以同2，3，5相乘，取最小的1×2=2添加到丑数序列中。</p>
+<p>现在丑数中有{1，2}，在上一步中，1已经同2相乘过了，所以今后没必要再比较1×2了，我们说1失去了同2相乘的资格。</p>
+<p>现在1有与3，5相乘的资格，2有与2，3，5相乘的资格，但是2×3和2×5是没必要比较的，因为有比它更小的1可以同3，5相乘，所以我们只需要比较1×3，1×5，2×2。</p>
+<p>依此类推，每次我们都分别比较有资格同2，3，5相乘的最小丑数，选择最小的那个作为下一个丑数，假设选择到的这个丑数是同i（i=2，3，5）相乘得到的，所以它失去了同i相乘的资格，把对应的pi++，让pi指向下一个丑数即可。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; primes&#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line">        priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; pq;</span><br><span class="line">        pq.push(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i: primes) &#123;</span><br><span class="line">            pq.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>, a, maxv = primes.back();</span><br><span class="line">        <span class="keyword">while</span>(index &lt; n) &#123;</span><br><span class="line">            a = pq.top();</span><br><span class="line">            <span class="keyword">while</span>(pq.size() &amp;&amp; pq.top() == a) &#123;</span><br><span class="line">                pq.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">if</span> (index == n) <span class="keyword">return</span> a;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i: primes) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((<span class="keyword">long</span> <span class="keyword">long</span>) i * a &gt; INT_MAX) <span class="keyword">continue</span>;</span><br><span class="line">                    pq.push(i * a);              </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> p1 = <span class="number">1</span>, p2 = <span class="number">1</span>, p3 = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(n + <span class="number">1</span>);</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = min(dp[p1] * <span class="number">2</span>, dp[p2] * <span class="number">3</span>);</span><br><span class="line">            temp = min(temp, dp[p3] * <span class="number">5</span>);</span><br><span class="line">            dp[i] = temp;</span><br><span class="line">            <span class="keyword">if</span> (temp == dp[p1] * <span class="number">2</span>) &#123;</span><br><span class="line">                p1++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (temp == dp[p2] * <span class="number">3</span>) &#123;</span><br><span class="line">                p2++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (temp == dp[p3] * <span class="number">5</span>) &#123;</span><br><span class="line">                p3++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
@@ -529,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">173</span>
+                  <span class="site-state-item-count">174</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -655,7 +661,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">122.1k</span>
+    <span title="Site words total count">122.8k</span>
   
 </div>
 
