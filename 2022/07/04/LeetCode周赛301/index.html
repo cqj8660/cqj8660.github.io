@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="前言开一个新坑，记录一下每周的周赛情况把每周不会的题尽可能地补一下 作为补充锻炼思维的同时，提升写代码的速度和准度">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-07-04T08:28:57.664Z">
+<meta property="og:updated_time" content="2022-07-04T08:50:50.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode周赛301">
 <meta name="twitter:description" content="前言开一个新坑，记录一下每周的周赛情况把每周不会的题尽可能地补一下 作为补充锻炼思维的同时，提升写代码的速度和准度">
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  807
+                  809
                 </span>
               
 
@@ -393,12 +393,12 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>开一个新坑，记录一下每周的周赛情况<br>把每周不会的题尽可能地补一下 作为补充<br>锻炼思维的同时，提升写代码的速度和准度<br><a id="more"></a></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="C-知道秘密的人数"><a href="#C-知道秘密的人数" class="headerlink" title="C. 知道秘密的人数"></a>C. 知道秘密的人数</h3><p><strong>链接</strong>: <a href="https://leetcode.cn/problems/number-of-people-aware-of-a-secret/" target="_blank" rel="noopener">https://leetcode.cn/problems/number-of-people-aware-of-a-secret/</a></p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>开一个新坑，记录一下每周的周赛情况<br>把每周不会的题尽可能地补一下 作为补充<br>锻炼思维的同时，提升写代码的速度和准度<br><a id="more"></a></p>
+<h3 id="C-知道秘密的人数"><a href="#C-知道秘密的人数" class="headerlink" title="C. 知道秘密的人数"></a>C. 知道秘密的人数</h3><p><strong>链接</strong>: <a href="https://leetcode.cn/problems/number-of-people-aware-of-a-secret/" target="_blank" rel="noopener">https://leetcode.cn/problems/number-of-people-aware-of-a-secret/</a></p>
 <h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>在第 1 天，有一个人发现了一个秘密。<br>给你一个整数 delay ，表示每个人会在发现秘密后的 delay 天之后，每天 给一个新的人 分享 秘密。同时给你一个整数 forget ，表示每个人在发现秘密 forget 天之后会 忘记 这个秘密。一个人 不能 在忘记秘密那一天及之后的日子里分享秘密。<br>给你一个整数 n ，请你返回在第 n 天结束时，知道秘密的人数。由于答案可能会很大，请你将结果对 109 + 7 取余 后返回。</p>
 <h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p>比赛的时候当天赶时间，甚至第三题都没做出来<br>签了两题就溜了<br>晚上睡觉的时候一直在想到底是哪里出了问题<br>用一个remb数组记录第i天有多少人开始传播，fort数组记录第i天有多少人忘记秘密<br>spread记录当天可以传播秘密的人数，num表示当天知道秘密的人<br>然后维护一下各个值就好了</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">peopleAwareOfSecret</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> delay, <span class="keyword">int</span> forget)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;ll&gt; remb(<span class="number">2020</span>), fort(<span class="number">2020</span>);</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> num = <span class="number">1</span>, spread = <span class="number">0</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">        remb[<span class="number">1</span> + delay] = <span class="number">1</span>;</span><br><span class="line">        fort[<span class="number">1</span> + forget] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            spread += remb[i] % mod;</span><br><span class="line">            spread -= fort[i] % mod;</span><br><span class="line">            num += spread % mod;</span><br><span class="line">            num -= fort[i] % mod;</span><br><span class="line">            remb[i + delay] = spread;</span><br><span class="line">            fort[i + forget] = spread;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num % mod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="C-知道秘密的人数-1"><a href="#C-知道秘密的人数-1" class="headerlink" title="C. 知道秘密的人数"></a>C. 知道秘密的人数</h3><p><strong>链接</strong>: <a href="https://leetcode.cn/problems/number-of-increasing-paths-in-a-grid/" target="_blank" rel="noopener">https://leetcode.cn/problems/number-of-increasing-paths-in-a-grid/</a></p>
+<h3 id="C-网格图中递增路径的数目"><a href="#C-网格图中递增路径的数目" class="headerlink" title="C. 网格图中递增路径的数目"></a>C. 网格图中递增路径的数目</h3><p><strong>链接</strong>: <a href="https://leetcode.cn/problems/number-of-increasing-paths-in-a-grid/" target="_blank" rel="noopener">https://leetcode.cn/problems/number-of-increasing-paths-in-a-grid/</a></p>
 <h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>给你一个 m x n 的整数网格图 grid ，你可以从一个格子移动到 4 个方向相邻的任意一个格子。</p>
 <p>请你返回在网格图中从 任意 格子出发，达到 任意 格子，且路径中的数字是 严格递增 的路径数目。由于答案可能会很大，请将结果对 1e9 + 7 取余 后返回。</p>
 <h4 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h4><p>周赛的时候看这题<br>好像不难 但没什么感觉 没做出来<br>赛后发现就一个dfs 记忆化一下就可以</p>
@@ -445,6 +445,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/07/05/LeetCode135-分发糖果/" rel="prev" title="LeetCode135 分发糖果">
+                LeetCode135 分发糖果 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -528,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">183</span>
+                  <span class="site-state-item-count">184</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-知道秘密的人数"><span class="nav-number">2.1.</span> <span class="nav-text">C. 知道秘密的人数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">2.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法"><span class="nav-number">2.1.2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">2.1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-知道秘密的人数-1"><span class="nav-number">2.2.</span> <span class="nav-text">C. 知道秘密的人数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-知道秘密的人数"><span class="nav-number">2.</span> <span class="nav-text">C. 知道秘密的人数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法"><span class="nav-number">2.2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">2.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-网格图中递增路径的数目"><span class="nav-number">3.</span> <span class="nav-text">C. 网格图中递增路径的数目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法-1"><span class="nav-number">3.2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码-1"><span class="nav-number">3.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -654,7 +658,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">126.4k</span>
+    <span title="Site words total count">126.7k</span>
   
 </div>
 
