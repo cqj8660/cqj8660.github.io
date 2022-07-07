@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NLP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="子词嵌入在自然语言处理中，如果将整个单词作为词表中的一个词存在词表过大的问题同时一个新的词语如果不是常见词，也会出现OOV问题同时不同词性的词，如果将它们认为成不同的词，会失去这部分的语义信息因此便有了字节对编码（BPE）技术">
+<meta name="keywords" content="NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字节对编码(Byte Pair Encoding)">
+<meta property="og:url" content="http://yoursite.com/2022/04/11/字节对编码(Byte-Pair-Encoding)/index.html">
+<meta property="og:site_name" content="Qjchen&#39;s Blog">
+<meta property="og:description" content="子词嵌入在自然语言处理中，如果将整个单词作为词表中的一个词存在词表过大的问题同时一个新的词语如果不是常见词，也会出现OOV问题同时不同词性的词，如果将它们认为成不同的词，会失去这部分的语义信息因此便有了字节对编码（BPE）技术">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-05-09T08:19:13.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字节对编码(Byte Pair Encoding)">
+<meta name="twitter:description" content="子词嵌入在自然语言处理中，如果将整个单词作为词表中的一个词存在词表过大的问题同时一个新的词语如果不是常见词，也会出现OOV问题同时不同词性的词，如果将它们认为成不同的词，会失去这部分的语义信息因此便有了字节对编码（BPE）技术">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2022/04/11/字节对编码(Byte-Pair-Encoding)/"/>
+
+
+
+
+
+  <title>字节对编码(Byte Pair Encoding) | Qjchen's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qjchen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">但问耕耘，莫问收获</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/11/字节对编码(Byte-Pair-Encoding)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qjchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qjchen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">字节对编码(Byte Pair Encoding)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-04-11T11:04:50+08:00">
+                2022-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自然语言处理/" itemprop="url" rel="index">
+                    <span itemprop="name">自然语言处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/04/11/字节对编码(Byte-Pair-Encoding)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/04/11/字节对编码(Byte-Pair-Encoding)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  697
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="子词嵌入"><a href="#子词嵌入" class="headerlink" title="子词嵌入"></a>子词嵌入</h3><p>在自然语言处理中，如果将整个单词作为词表中的一个词<br>存在词表过大的问题<br>同时一个新的词语如果不是常见词，也会出现OOV问题<br>同时不同词性的词，如果将它们认为成不同的词，会失去这部分的语义信息<br>因此便有了字节对编码（BPE）技术<br><a id="more"></a><br>字节的二面问到了这一算法<br>要求讲出具体过程并用代码实现，当时没能写出来<br>现对这一部分的内容进行补漏</p>
+<h3 id="BPE代码"><a href="#BPE代码" class="headerlink" title="BPE代码"></a>BPE代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_max_freq</span><span class="params">(token_freqs)</span>:</span> <span class="comment"># 获得最大频率的bigram</span></span><br><span class="line">    pairs = collections.defaultdict(int)</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> token_freqs.items():</span><br><span class="line">        symbols = k.split()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(symbols) - <span class="number">1</span>):</span><br><span class="line">            pairs[symbols[i], symbols[i + <span class="number">1</span>]] += v</span><br><span class="line">    <span class="keyword">return</span> max(pairs, key=pairs.get)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_vocab</span><span class="params">(max_pair, token_freqs, vocab)</span>:</span> <span class="comment"># 构建新词表</span></span><br><span class="line">    vocab.append(<span class="string">''</span>.join(max_pair))</span><br><span class="line">    v_out = &#123;&#125;</span><br><span class="line">    bigram = re.escape(<span class="string">' '</span>.join(max_pair)) <span class="comment"># 原pair进行转义</span></span><br><span class="line">    p = re.compile(<span class="string">'(?&lt;!\S)'</span> + bigram + <span class="string">'(?!\S)'</span>) <span class="comment"># 前后都不能有空格</span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> token_freqs:</span><br><span class="line">        new_token = p.sub(<span class="string">''</span>.join(max_pair), word) <span class="comment"># 进行替换</span></span><br><span class="line">        v_out[new_token] = token_freqs[word]</span><br><span class="line">    <span class="keyword">return</span> v_out</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">segement_BPE</span><span class="params">(tokens, vocab)</span>:</span> <span class="comment"># 计算</span></span><br><span class="line">    outputs = []</span><br><span class="line">    <span class="keyword">for</span> token <span class="keyword">in</span> tokens:</span><br><span class="line">        start, end = <span class="number">0</span>, len(token)</span><br><span class="line">        cur_output = []</span><br><span class="line">        <span class="keyword">while</span> start &lt; len(token) <span class="keyword">and</span> start &lt; end:</span><br><span class="line">            <span class="keyword">if</span> token[start: end] <span class="keyword">in</span> vocab:</span><br><span class="line">                cur_output.append(token[start: end])</span><br><span class="line">                start = end</span><br><span class="line">                end = len(token)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                end -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> start &lt; len(token):</span><br><span class="line">            cur_output.append(<span class="string">'[UNK]'</span>)</span><br><span class="line">        outputs.append(<span class="string">' '</span>.join(cur_output))</span><br><span class="line">    <span class="keyword">return</span> outputs</span><br></pre></td></tr></table></figure>
+<h3 id="子词嵌入迭代过程"><a href="#子词嵌入迭代过程" class="headerlink" title="子词嵌入迭代过程"></a>子词嵌入迭代过程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">raw_token_freqs = &#123;<span class="string">'low_'</span>: <span class="number">5</span>, <span class="string">'lower_'</span>: <span class="number">2</span>, <span class="string">'newest_'</span>: <span class="number">6</span>, <span class="string">'widest_'</span>: <span class="number">3</span>&#125;</span><br><span class="line">token_freqs = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> raw_token_freqs.items():</span><br><span class="line">    token_freqs[<span class="string">' '</span>.join(k)] = v</span><br><span class="line">print(token_freqs)</span><br><span class="line">vocab = [chr(ord(<span class="string">'a'</span>) + i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">26</span>)]</span><br><span class="line">vocab.append(<span class="string">'_'</span>)</span><br><span class="line">num_merge = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(num_merge):</span><br><span class="line">    max_pair = get_max_freq(token_freqs)</span><br><span class="line">    token_freqs = merge_vocab(max_pair, token_freqs, vocab)</span><br><span class="line">    print(max_pair)</span><br><span class="line">print(vocab)</span><br><span class="line">print(token_freqs)</span><br></pre></td></tr></table></figure>
+<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(&apos;e&apos;, &apos;s&apos;)</span><br><span class="line">(&apos;es&apos;, &apos;t&apos;)</span><br><span class="line">(&apos;est&apos;, &apos;_&apos;)</span><br><span class="line">(&apos;l&apos;, &apos;o&apos;)</span><br><span class="line">(&apos;lo&apos;, &apos;w&apos;)</span><br><span class="line">(&apos;n&apos;, &apos;e&apos;)</span><br><span class="line">(&apos;ne&apos;, &apos;w&apos;)</span><br><span class="line">(&apos;new&apos;, &apos;est_&apos;)</span><br><span class="line">(&apos;low&apos;, &apos;_&apos;)</span><br><span class="line">(&apos;w&apos;, &apos;i&apos;)</span><br><span class="line">[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;, &apos;k&apos;, &apos;l&apos;, &apos;m&apos;, &apos;n&apos;, &apos;o&apos;, &apos;p&apos;, &apos;q&apos;, &apos;r&apos;, &apos;s&apos;, &apos;t&apos;, &apos;u&apos;, &apos;v&apos;, &apos;w&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;, &apos;_&apos;, &apos;es&apos;, &apos;est&apos;, &apos;est_&apos;, &apos;lo&apos;, &apos;low&apos;, &apos;ne&apos;, &apos;new&apos;, &apos;newest_&apos;, &apos;low_&apos;, &apos;wi&apos;]</span><br><span class="line">&#123;&apos;low_&apos;: 5, &apos;low e r _&apos;: 2, &apos;newest_&apos;: 6, &apos;wi d est_&apos;: 3&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="切分数据集单词"><a href="#切分数据集单词" class="headerlink" title="切分数据集单词"></a>切分数据集单词</h3><p>我们还可以使用从一个数据集学习的子词来切分另一个数据集的单词<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tokens = <span class="string">'old world is lower, new world is the best'</span>.split()</span><br><span class="line">tokens = [i + <span class="string">'_'</span> <span class="keyword">for</span> i <span class="keyword">in</span> tokens]</span><br><span class="line">print(segement_BPE(tokens, vocab))</span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;o l d _&apos;, &apos;w o r l d _&apos;, &apos;i s _&apos;, &apos;low e r [UNK]&apos;, &apos;new _&apos;, &apos;w o r l d _&apos;, &apos;i s _&apos;, &apos;t h e _&apos;, &apos;b est_&apos;]</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/03/15/LeetCode399-除法求值/" rel="next" title="LeetCode399 除法求值">
+                <i class="fa fa-chevron-left"></i> LeetCode399 除法求值
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/04/18/LeetCode301-删除无效的括号/" rel="prev" title="LeetCode301 删除无效的括号">
+                LeetCode301 删除无效的括号 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Qjchen" />
+            
+              <p class="site-author-name" itemprop="name">Qjchen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/cqj8660" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qjchen@zju.edu.cn" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://angericky.github.io/" title="angericky" target="_blank">angericky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.xinyujiang.cn/" title="Xinyujiang" target="_blank">Xinyujiang</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jxtxzzw.com/" title="jxtxzzw" target="_blank">jxtxzzw</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+<div id="music163player"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31152381&auto=0&height=66"></iframe></div>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#子词嵌入"><span class="nav-number">1.</span> <span class="nav-text">子词嵌入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BPE代码"><span class="nav-number">2.</span> <span class="nav-text">BPE代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子词嵌入迭代过程"><span class="nav-number">3.</span> <span class="nav-text">子词嵌入迭代过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切分数据集单词"><span class="nav-number">4.</span> <span class="nav-text">切分数据集单词</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qjchen</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">128k</span>
+  
+</div>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+        
+ 
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'pnyRB6klaBEl3QimTwbwCUgy-gzGzoHsz',
+        appKey: 'jsFkGcKxPQVynQUvdrLyz7u4',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
