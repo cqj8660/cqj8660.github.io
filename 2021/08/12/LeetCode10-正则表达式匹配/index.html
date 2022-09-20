@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Qjchen&#39;s Blog">
 <meta property="og:description" content="链接：https://leetcode-cn.com/problems/regular-expression-matching/description/ 题面给你一个字符串 s 和一个正则表达式 p，请你来实现一个支持 ‘.’ 和 ‘*’ 的正则表达式匹配。求该字符串是否可以被匹配  ‘.’ 匹配任意单个字符 ‘*’ 匹配零个或多个前面的那一个元素">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-08-12T03:10:53.470Z">
+<meta property="og:updated_time" content="2022-09-20T06:45:34.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode10 正则表达式匹配 ">
 <meta name="twitter:description" content="链接：https://leetcode-cn.com/problems/regular-expression-matching/description/ 题面给你一个字符串 s 和一个正则表达式 p，请你来实现一个支持 ‘.’ 和 ‘*’ 的正则表达式匹配。求该字符串是否可以被匹配  ‘.’ 匹配任意单个字符 ‘*’ 匹配零个或多个前面的那一个元素">
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  547
+                  621
                 </span>
               
 
@@ -398,14 +398,14 @@
 <ul>
 <li>‘.’ 匹配任意单个字符</li>
 <li>‘*’ 匹配零个或多个前面的那一个元素<a id="more"></a>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3>设立状态dp[i][j]表示s的前i个字符和p的前j个字符是否可以匹配<br>考虑状态转移方式，有以下几种情况</li>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3>设立状态dp[i][j]表示s的前i个字符和p的前j个字符是否可以匹配<br>首先进行初始化，对于dp[0][j]如果第j个字符时*的话，有可能符合0字符的情况，初始化为1<br>考虑状态转移方式，有以下几种情况</li>
 </ul>
 <ol>
 <li>p[j]是’.’ 即可以匹配任意字符 这种情况下只需要考虑s和p之前的字符串是否可以匹配 $ dp[i][j] = dp[i - 1][j - 1] $</li>
-<li>p[j]是普通字符 这是只需要考虑s[i - 1]和p[j - 1]是否相同 并且之前的字符串是否可以匹配 $ dp[i][j] = (dp[i - 1][j - 1]) and (s[i - 1] = p[j - 1])  $</li>
-<li>p[j]是’*’ 这里存在两种情况 <ul>
-<li>一种情况是p[j - 2] 和 s[i - 1]可以匹配 这个时候dp[i][j]可以从dp[i]<a href="\*扩充为零个字符">j - 2</a> dp[i]<a href="\*扩充为1个字符">j - 1</a> 以及 dp[i - 1]<a href="*增加一个字符匹配 只要之前是匹配即可">j</a></li>
-<li>另一种情况是p[j - 2] 和 s[i - 1] 无法匹配(两者不同且p[j - 1]不是’.’) 这个时候只能考虑将*扩充为零个字符 $dp[i][j] = dp[i][j - 2]$</li>
+<li>p[j]是普通字符，这时只需要考虑s[i - 1]和p[j - 1]是否相同，并且之前的字符串是否可以匹配 <script type="math/tex; mode=display">dp[i][j] = (dp[i - 1][j - 1]) \ and \  (s[i - 1] = p[j - 1])</script></li>
+<li>p[j]是’*’时存在两种情况 <ul>
+<li>p[j - 2] 和 s[i - 1]可以匹配<br>这个时候dp[i][j]可以从dp[i][j - 2] (扩充为零字符) dp[i][j - 1] (扩充为1个字符) 以及 dp[i - 1][j] (增加一个字符匹配，只要之前是匹配即可)<br>例如abbbbb和ab*，就是不断地从dp[i - 1][j]转移而来的情况</li>
+<li>p[j - 2] 和 s[i - 1] 无法匹配(两者不同且p[j - 1]不是’.’)<br>这个时候只能考虑将*扩充为空<script type="math/tex; mode=display">dp[i][j] = dp[i][j - 2]</script></li>
 </ul>
 </li>
 </ol>
@@ -661,7 +661,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">131.3k</span>
+    <span title="Site words total count">131.4k</span>
   
 </div>
 
